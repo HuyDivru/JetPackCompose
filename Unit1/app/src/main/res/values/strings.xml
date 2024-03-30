@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Unit1</string>
+    <string name="happy_birthday_text">Happy Birthday You</string>
+    <string name="singature_text">Nhat Huy</string>
+    <string name="title_activity_business_card">BusinessCardActivity</string>
+    <string name="name">Ho Nhat Huy</string>
+    <string name="content">Android Developer From Viet Nam</string>
+</resources>
