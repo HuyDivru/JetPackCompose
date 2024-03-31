@@ -60,7 +60,7 @@ fun GettingViewCenter(){
 fun ViewRow(icon:ImageVector,text:String){
     Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(16.dp)) {
         Icon(imageVector = icon, contentDescription = null, tint = Color.Green, modifier = Modifier.weight(1f))
-        Text(text = text, color = Color.White, modifier = Modifier.weight(3f), fontFamily = FontFamily.SansSerif)
+        Text(text = text, color = Color.White, modifier = Modifier.weight(4f), fontFamily = FontFamily.SansSerif)
     }
 }
 @Preview(showBackground = true)
