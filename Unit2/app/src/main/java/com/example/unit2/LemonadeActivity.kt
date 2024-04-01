@@ -37,80 +37,87 @@ class LemonadeActivity : ComponentActivity() {
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LemonadeApp(){
+fun LemonadeApp() {
 
     var currentStep by remember { mutableStateOf(1) }
+
     var squeezeCount by remember { mutableStateOf(0) }
 
-    Scaffold(topBar = {
-        CenterAlignedTopAppBar(
-            title = {
-                Text(text = "Lemonade", fontWeight = FontWeight.Bold)
-            },
-            colors = TopAppBarDefaults.smallTopAppBarColors(
-                containerColor = Color(0xFF3CEBD9),
-                titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    Text(
+                        text = "Lemonade",
+                        fontWeight = FontWeight.Bold
+                    )
+                },
+                colors = TopAppBarDefaults.smallTopAppBarColors(
+                    containerColor = Color(0xFF3CEBD9),
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
             )
-        )
-    }){
-        innerPadding -> Surface(
+        }
+    ) { innerPadding ->
+        Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
                 .background(MaterialTheme.colorScheme.tertiaryContainer),
-        color = MaterialTheme.colorScheme.background
-        )
-    {
-        when(currentStep){
-            1 ->{
-                LemonTextAndImage(textLabelResourceId=R.string.lemon_select,
-                    drawableResourceId=R.drawable.lemon_tree,
-                    contentDescriptionResourceId=R.string.lemon_tree_content_description,
-                    onImageClick = {
-                        currentStep=2
-                        squeezeCount=(2..4).random()
-                    }
-                )
-            }
-            2->{
-                LemonTextAndImage(textLabelResourceId=R.string.lemon_select,
-                    drawableResourceId=R.drawable.lemon_tree,
-                    contentDescriptionResourceId=R.string.lemon_tree_content_description,
-                    onImageClick = {
-                        squeezeCount--
-                        if(squeezeCount==0){
-                            currentStep=3
+            color = MaterialTheme.colorScheme.background
+        ) {
+            when (currentStep) {
+                1 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.lemon_select,
+                        drawableResourceId = R.drawable.lemon_tree,
+                        contentDescriptionResourceId = R.string.lemon_tree_content_description,
+                        onImageClick = {
+                            currentStep = 2
+                            squeezeCount = (2..4).random()
                         }
-                    }
-                )
-            }
-            3->{
-                LemonTextAndImage(textLabelResourceId=R.string.lemon_select,
-                    drawableResourceId=R.drawable.lemon_tree,
-                    contentDescriptionResourceId=R.string.lemon_tree_content_description,
-                    onImageClick = {
-                        currentStep=4
-                    }
-                )
-            }
-            4->{
-                LemonTextAndImage(textLabelResourceId=R.string.lemon_select,
-                    drawableResourceId=R.drawable.lemon_tree,
-                    contentDescriptionResourceId=R.string.lemon_tree_content_description,
-                    onImageClick = {
-                        currentStep=1
-                    }
-                )
+                    )
+                }
+                2 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.lemon_squeeze,
+                        drawableResourceId = R.drawable.lemon_squeeze,
+                        contentDescriptionResourceId = R.string.lemon_content_description,
+                        onImageClick = {
+                            squeezeCount--
+                            if (squeezeCount == 0) {
+                                currentStep = 3
+                            }
+                        }
+                    )
+                }
+
+                3 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.lemon_drink,
+                        drawableResourceId = R.drawable.lemon_drink,
+                        contentDescriptionResourceId = R.string.lemonade_content_description,
+                        onImageClick = {
+                            currentStep = 4
+                        }
+                    )
+                }
+                4 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.lemon_empty_glass,
+                        drawableResourceId = R.drawable.lemon_restart,
+                        contentDescriptionResourceId = R.string.empty_glass_content_description,
+                        onImageClick = {
+                            currentStep = 1
+                        }
+                    )
+                }
             }
         }
-
     }
-    }
-
 }
-
 @Composable
 fun LemonTextAndImage(
     textLabelResourceId: Int,
@@ -119,24 +126,36 @@ fun LemonTextAndImage(
     onImageClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier){
-        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxSize()) {
-            Button(onClick = { onImageClick },
-            shape = RoundedCornerShape(40.dp),
+    Box(
+        modifier = modifier
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Button(
+                onClick = onImageClick,
+                shape = RoundedCornerShape(50.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
             ) {
-                Image(painter = painterResource(id = drawableResourceId), contentDescription = stringResource(contentDescriptionResourceId
-                ),modifier= Modifier
-                    .width(120.dp)
-                    .height(160.dp)
-                    .padding(32.dp))
+                Image(
+                    painter = painterResource(drawableResourceId),
+                    contentDescription = stringResource(contentDescriptionResourceId),
+                    modifier = Modifier
+                        .width(160.dp)
+                        .height(120.dp)
+                        .padding(26.dp)
+                )
             }
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(text = stringResource(id = textLabelResourceId), style = MaterialTheme.typography.bodyLarge)
+            Spacer(modifier = Modifier.height(28.dp))
+            Text(
+                text = stringResource(textLabelResourceId),
+                style = MaterialTheme.typography.bodyLarge
+            )
         }
     }
 }
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview2() {
