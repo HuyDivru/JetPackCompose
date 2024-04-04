@@ -13,11 +13,11 @@
     <string name="title_activity_calculator">CalculatorActivity</string>
 
 
-
-
     <string name="calculate_tip">Calculate Tip</string>
     <string name="bill_amount">Bill Amount</string>
     <string name="how_was_the_service">Tip Percentange</string>
     <string name="round_up_tip">Round up tip?</string>
     <string name="tip_amout">Tip Amount: %s</string>
+    <string name="title_activity_art_space_app">ArtSpaceApp</string>
+    <string name="title_activity_art_space">ArtSpaceActivity</string>
 </resources>
