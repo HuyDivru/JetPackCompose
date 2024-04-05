@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SupperHeroes</string>
+    <string name="hero1">Spider man</string>
+    <string name="description1">Spider-Man is a fictional superhero characterized by his iconic red and blue costume adorned with web patterns</string>
+    <string name="hero2">Huy man</string>
+    <string name="description2"> He also possesses a "spider-sense" that alerts him to danger.</string>
+    <string name="hero3">The Hulk</string>
+    <string name="description3">  A fictional superhero appearing in comic books published by Marvel Comics</string>
+    <string name="hero4">Sonic</string>
+    <string name="description4"> He is a blue anthropomorphic hedgehog known for his incredible speed, which is his trademark ability</string>
+    <string name="hero5">Badman</string>
+    <string name="description5">Batman operates as a vigilante detective, striking fear into the hearts of criminals</string>
+    <string name="hero6">Monkey D.Luffy</string>
+    <string name="description6">Luffy is particularly known for wearing a red straw hat on his head.</string>
+    <string name="hero7">Messi</string>
+    <string name="description7">Lionel Messi is an Argentine professional footballer widely regarded as one of the greatest players of all time</string>
+
+</resources>

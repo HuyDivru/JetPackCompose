@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WoofAppInUnit3</string>
+    <string name="app_name">Woof</string>
     <string name="dog_name_1">Koda</string>
     <string name="dog_name_2">Lola</string>
     <string name="dog_name_3">Frankie</string>
@@ -21,4 +21,5 @@
     <string name="about">About:</string>
     <string name="years_old">%d years old</string>
     <string name="expand_button_content_description">See more or less information about a dog.</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>
