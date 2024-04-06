@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    SuperHeroes()
                 }
             }
         }
@@ -77,40 +78,32 @@ fun HeroTopAppBar(modifier: Modifier=Modifier) {
 
 @Composable
 fun HeroItem(hero: SuperHero, modifier: Modifier=Modifier) {
-    Card(modifier = modifier) {
-        Column {
-            Row(modifier = Modifier
+    Card(modifier = modifier, elevation = CardDefaults.cardElevation(2.dp)) {
+            Row(modifier = modifier
                 .fillMaxWidth()
-                .padding(dimensionResource(id = R.dimen.padding_card))) {
-                HeroInformation(hero.nameHero,hero.descriptionHero)
+                .padding(16.dp)
+                .sizeIn(minHeight = 72.dp)) {
+                HeroInformation(hero.nameHero,hero.descriptionHero,modifier.weight(1f))
+                Spacer(modifier = Modifier.width(8.dp))
                 HeroIcon(hero.imageHero)
             }
-        }
+
     }
 }
 
 @Composable
 fun HeroIcon(imageHero: Int,modifier: Modifier=Modifier) {
-    Image(painter = painterResource(id = imageHero), contentDescription =null,modifier= modifier
-        .size(
-            dimensionResource(id = R.dimen.padding_card)
-        )
-        .padding(dimensionResource(id = R.dimen.padding_small))
-        .clip(MaterialTheme.shapes.small), contentScale = ContentScale.Crop )
+    Box(modifier = Modifier
+        .size(72.dp)
+        .clip(RoundedCornerShape(8.dp))){
+        Image(painter = painterResource(id = imageHero), contentDescription = null, alignment = Alignment.TopCenter, contentScale = ContentScale.FillWidth)
+    }
 }
 
 @Composable
 fun HeroInformation(nameHero: Int, descriptionHero: Int,modifier: Modifier=Modifier) {
-    Column(modifier = Modifier
-        .height(dimensionResource(id = R.dimen.padding_card))
-        .padding(
-            top = dimensionResource(id = R.dimen.padding_medium),
-            bottom = dimensionResource(
-                id = R.dimen.padding_medium
-            ),
-            start = dimensionResource(id = R.dimen.padding_medium),
-            end = dimensionResource(id = R.dimen.padding_medium)
-        )){
+    Column(modifier =modifier
+        ){
             Text (text = stringResource(id = nameHero),
             style = MaterialTheme.typography.displaySmall,
             fontSize = 20.sp
