@@ -1,3 +1,238 @@
 <resources>
-    <string name="app_name">App30Days</string>
+    <string name="app_name">30Days Of Huy</string>
+
+    <string name="day1">Day 1</string>
+    <string name="title1">Khởi động hành trình thay đổi</string>
+    <string name="description1">
+     - Lên kế hoạch cho 30 ngày\n
+     - Xác định mục tiêu thay đổi\n
+     - Cam kết thực hiện hành trình
+   </string>
+
+    <string name="day2">Day 2</string>
+    <string name="title2">Hiểu rõ sức mạnh của thói quen</string>
+    <string name="description2">
+     - Phân biệt thói quen tốt và thói quen xấu\n
+     - Tìm hiểu cách hình thành thói quen mới\n
+     - Bắt đầu xây dựng thói quen tốt
+   </string>
+
+    <string name="day3">Day 3</string>
+    <string name="title3">Bí quyết tự tin là gì?</string>
+    <string name="description3">
+     - Khám phá nguyên nhân khiến bạn thiếu tự tin\n
+     - Xây dựng lòng tin vào bản thân\n
+     - Luyện tập kỹ năng giao tiếp tự tin
+   </string>
+
+    <string name="day4">Day 4</string>
+    <string name="title4">Bí quyết quản lý thời gian</string>
+    <string name="description4">
+     - Lập kế hoạch thời gian hợp lý\n
+     - Sử dụng công cụ quản lý thời gian\n
+     - Tránh xa những xao nhãng
+   </string>
+
+    <string name="day5">Day 5</string>
+    <string name="title5">Chăm sóc sức khỏe tinh thần</string>
+    <string name="description5">
+     - Hiểu rõ tầm quan trọng của sức khỏe tinh thần\n
+     - Cách giảm stress và lo âu\n
+     - Luyện tập thói quen suy nghĩ tích cực
+   </string>
+    <string name="day6">Day 6</string>
+    <string name="title6">Tăng cường kiên nhẫn và sự nhẫn nại</string>
+    <string name="description6">
+     - Hiểu rõ vai trò của kiên nhẫn trong cuộc sống\n
+     - Phát triển kỹ năng kiên nhẫn\n
+     - Áp dụng sự nhẫn nại vào các mục tiêu
+   </string>
+
+    <string name="day7">Day 7</string>
+    <string name="title7">Phát triển kỹ năng quản lý căng thẳng</string>
+    <string name="description7">
+     - Nhận biết dấu hiệu của căng thẳng\n
+     - Học cách xử lý căng thẳng hiệu quả\n
+     - Thực hành kỹ thuật giảm căng thẳng
+   </string>
+
+    <string name="day8">Day 8</string>
+    <string name="title8">Xây dựng môi trường tích cực</string>
+    <string name="description8">
+     - Nhận biết tác động của môi trường đến tâm trạng\n
+     - Tạo môi trường tích cực xung quanh\n
+     - Cải thiện không gian sống và làm việc
+   </string>
+
+    <string name="day9">Day 9</string>
+    <string name="title9">Phát triển tư duy linh hoạt</string>
+    <string name="description9">
+     - Hiểu về tư duy linh hoạt và ứng dụng của nó\n
+     - Luyện tập mở rộng cách suy nghĩ\n
+     - Đối mặt và giải quyết vấn đề một cách linh hoạt
+   </string>
+
+    <string name="day10">Day 10</string>
+    <string name="title10">Thực hành lòng biết ơn</string>
+    <string name="description10">
+     - Tìm hiểu lợi ích của việc biết ơn\n
+     - Thực hành lòng biết ơn hàng ngày\n
+     - Xây dựng thói quen biết ơn và đánh giá tích cực
+   </string>
+    <string name="day11">Day 11</string>
+    <string name="title11">Phát triển kỹ năng quản lý cảm xúc</string>
+    <string name="description11">
+     - Nhận biết và hiểu rõ cảm xúc của bản thân\n
+     - Học cách kiểm soát cảm xúc\n
+     - Áp dụng kỹ thuật quản lý cảm xúc vào cuộc sống hàng ngày
+   </string>
+
+    <string name="day12">Day 12</string>
+    <string name="title12">Xây dựng mục tiêu cụ thể và đo lường tiến độ</string>
+    <string name="description12">
+     - Lập ra các mục tiêu cụ thể và khả thi\n
+     - Sử dụng các phương pháp đo lường tiến độ\n
+     - Điều chỉnh và cập nhật mục tiêu theo tiến độ
+   </string>
+
+    <string name="day13">Day 13</string>
+    <string name="title13">Học cách đối phó với sự thay đổi</string>
+    <string name="description13">
+     - Hiểu rõ về quá trình thay đổi và sự khó khăn\n
+     - Phát triển sự linh hoạt và sẵn sàng thích ứng\n
+     - Tìm kiếm cơ hội trong sự thay đổi
+   </string>
+
+    <string name="day14">Day 14</string>
+    <string name="title14">Tăng cường kỹ năng quản lý rủi ro</string>
+    <string name="description14">
+     - Nhận biết và đánh giá rủi ro\n
+     - Phát triển kế hoạch đối phó với rủi ro\n
+     - Học cách xử lý tình huống không nguyên nhân
+   </string>
+
+    <string name="day15">Day 15</string>
+    <string name="title15">Phát triển lòng kiên nhẫn và kiên trì</string>
+    <string name="description15">
+     - Luyện tập lòng kiên nhẫn và kiên trì trong cuộc sống hàng ngày\n
+     - Nhận ra giá trị của việc không từ bỏ\n
+     - Xây dựng tinh thần kiên trì và quyết tâm
+   </string>
+    <string name="day16">Day 16</string>
+    <string name="title16">Tăng cường kỹ năng giao tiếp hiệu quả</string>
+    <string name="description16">
+   - Hiểu rõ về nguyên tắc giao tiếp hiệu quả\n
+   - Phát triển kỹ năng lắng nghe và diễn đạt\n
+   - Áp dụng kỹ năng giao tiếp vào mọi mối quan hệ
+</string>
+
+    <string name="day17">Day 17</string>
+    <string name="title17">Học cách tạo động lực từ bên ngoài</string>
+    <string name="description17">
+   - Tìm hiểu về nguồn động lực bên ngoài\n
+   - Sử dụng nguồn động lực để thúc đẩy hành động\n
+   - Xây dựng môi trường khích lệ động lực
+</string>
+
+    <string name="day18">Day 18</string>
+    <string name="title18">Thực hành sự kiên nhẫn và kiên trì</string>
+    <string name="description18">
+   - Đối mặt với thử thách và khó khăn với tinh thần kiên nhẫn\n
+   - Khuyến khích bản thân và người khác tiếp tục nỗ lực\n
+   - Học cách vượt qua thất bại và tiếp tục phát triển
+</string>
+
+    <string name="day19">Day 19</string>
+    <string name="title19">Tập trung vào giải pháp, không phải vấn đề</string>
+    <string name="description19">
+   - Hiểu về quan điểm giải quyết vấn đề\n
+   - Tập trung vào tìm kiếm giải pháp thay vì chìm đắm trong vấn đề\n
+   - Áp dụng phương pháp giải quyết vấn đề vào các tình huống thực tế
+</string>
+
+    <string name="day20">Day 20</string>
+    <string name="title20">Thực hành sự tự chủ và tự quản lý</string>
+    <string name="description20">
+   - Xác định trách nhiệm và quyền lợi cá nhân\n
+   - Phát triển kỹ năng tự quản lý và tự điều chỉnh\n
+   - Thực hành sự tự chủ trong quyết định và hành động hàng ngày
+</string>
+    <string name="day21">Day 21</string>
+    <string name="title21">Khám phá sức mạnh của tư duy tích cực</string>
+    <string name="description21">
+   - Tìm hiểu về ảnh hưởng của tư duy tích cực đối với cuộc sống\n
+   - Luyện tập nhận diện và thay đổi tư duy tiêu cực thành tích cực\n
+   - Áp dụng tư duy tích cực vào các tình huống hàng ngày
+</string>
+
+    <string name="day22">Day 22</string>
+    <string name="title22">Phát triển kỹ năng giải quyết xung đột</string>
+    <string name="description22">
+   - Hiểu biết về các phương pháp giải quyết xung đột\n
+   - Luyện tập kỹ năng thương lượng và làm việc nhóm\n
+   - Áp dụng kỹ năng này vào việc giải quyết xung đột trong cuộc sống
+</string>
+
+    <string name="day23">Day 23</string>
+    <string name="title23">Học cách đề cao và tôn trọng sự khác biệt</string>
+    <string name="description23">
+   - Hiểu rõ giá trị của sự đa dạng và sự khác biệt\n
+   - Phát triển kỹ năng đánh giá và tôn trọng sự khác biệt\n
+   - Xây dựng môi trường thân thiện và đa dạng
+</string>
+
+    <string name="day24">Day 24</string>
+    <string name="title24">Tạo mối quan hệ tích cực và hỗ trợ</string>
+    <string name="description24">
+   - Xác định và phát triển mối quan hệ tích cực\n
+   - Học cách giúp đỡ và hỗ trợ người khác\n
+   - Tạo ra một môi trường hỗ trợ và đồng cảm
+</string>
+
+    <string name="day25">Day 25</string>
+    <string name="title25">Thực hành biết lắng nghe và hiểu biết</string>
+    <string name="description25">
+   - Phát triển kỹ năng lắng nghe chân thành và hiểu biết\n
+   - Học cách đặt câu hỏi và tạo ra sự kết nối\n
+   - Thực hành biết lắng nghe để tạo ra mối quan hệ tốt hơn
+</string>
+    <string name="day26">Day 26</string>
+    <string name="title26">Tập trung vào phát triển bản thân</string>
+    <string name="description26">
+   - Xác định điểm mạnh và điểm yếu cá nhân\n
+   - Phát triển kế hoạch để cải thiện bản thân\n
+   - Đặt mục tiêu và hành động để đạt được sự tiến bộ
+</string>
+
+    <string name="day27">Day 27</string>
+    <string name="title27">Thực hành tư duy sáng tạo</string>
+    <string name="description27">
+   - Khám phá và phát triển tư duy sáng tạo\n
+   - Tạo ra môi trường thúc đẩy sự sáng tạo\n
+   - Áp dụng tư duy sáng tạo vào giải quyết vấn đề
+</string>
+
+    <string name="day28">Day 28</string>
+    <string name="title28">Tạo thói quen học tập và phát triển bản thân</string>
+    <string name="description28">
+   - Xác định mục tiêu học tập và phát triển cá nhân\n
+   - Lập kế hoạch học tập và thực hiện thói quen học tập hàng ngày\n
+   - Đánh giá tiến bộ và điều chỉnh kế hoạch theo cần thiết
+</string>
+
+    <string name="day29">Day 29</string>
+    <string name="title29">Kỹ năng quản lý tiền bạc</string>
+    <string name="description29">
+   - Hiểu về quản lý tài chính cá nhân\n
+   - Lập kế hoạch ngân sách cá nhân\n
+   - Học cách đầu tư và tiết kiệm một cách thông minh
+</string>
+
+    <string name="day30">Day 30</string>
+    <string name="title30">Tổng kết và định hướng tương lai</string>
+    <string name="description30">
+   - Nhìn lại hành trình 30 ngày\n
+   - Đánh giá mức độ tiến bộ và đạt được mục tiêu\n
+   - Xác định các bước tiếp theo và định hình tương lai
+</string>
 </resources>
