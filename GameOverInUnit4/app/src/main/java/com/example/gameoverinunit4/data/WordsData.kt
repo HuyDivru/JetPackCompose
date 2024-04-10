@@ -1,0 +1,48 @@
+package com.example.gameoverinunit4.data
+
+const val MAX_NO_OF_WORDS=10
+const val SCORE_INCREASE=20
+
+val allWorks:Set<String> = setOf(
+    "animal",
+    "auto",
+    "anecdote",
+    "alphabet",
+    "all",
+    "awesome",
+    "arise",
+    "balloon",
+    "basket",
+    "bench",
+    "banana",
+    "bear",
+    "ball",
+    "cake",
+    "cat",
+    "dog",
+    "duck",
+    "elephant",
+    "fish",
+    "grape",
+    "happy",
+    "hat",
+    "icecream",
+    "island",
+    "juice",
+    "kite",
+    "lemon",
+    "moon",
+    "nest",
+    "orange",
+    "penguin",
+    "queen",
+    "rainbow",
+    "sun",
+    "tiger",
+    "umbrella",
+    "volcano",
+    "watermelon",
+    "xylophone",
+    "yak",
+    "zebra"
+)

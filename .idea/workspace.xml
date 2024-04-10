@@ -4,7 +4,45 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14589a55-777d-4337-a2fe-b86117b2cf6b" name="Changes" comment="" />
+    <list default="true" id="14589a55-777d-4337-a2fe-b86117b2cf6b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/androidTest/java/com/example/gameoverinunit4/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/java/com/example/gameoverinunit4/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/java/com/example/gameoverinunit4/ui/theme/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/java/com/example/gameoverinunit4/ui/theme/Theme.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/java/com/example/gameoverinunit4/ui/theme/Type.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/app/src/test/java/com/example/gameoverinunit4/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameOverInUnit4/settings.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,5 +73,16 @@
       <updated>1712364190630</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.gameoverinunit4.gameui.GameScreen
+import com.example.gameoverinunit4.gameui.GameUiState
 import com.example.gameoverinunit4.ui.theme.GameOverInUnit4Theme
 
 class MainActivity : ComponentActivity() {
@@ -22,22 +24,17 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    GameScreen()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     GameOverInUnit4Theme {
-        Greeting("Android")
+        GameScreen()
     }
 }
