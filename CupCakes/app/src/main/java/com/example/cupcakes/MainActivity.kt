@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.cupcakes.appui.StartOrderScreen
+import com.example.cupcakes.data.DataSource
 import com.example.cupcakes.ui.theme.CupCakesTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    CupcakeApp()
                 }
             }
         }
@@ -38,6 +40,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     CupCakesTheme {
-        Greeting("Android")
+        StartOrderScreen(quantityOptions = DataSource.quantityOptions, onNextButtonClicked = {})
     }
 }
