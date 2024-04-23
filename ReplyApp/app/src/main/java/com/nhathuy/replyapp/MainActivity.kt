@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.nhathuy.replyapp.appui.ReplyApp
 import com.nhathuy.replyapp.ui.theme.ReplyAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,11 +19,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             ReplyAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
+                Surface {
+                    ReplyApp()
                 }
             }
         }
@@ -38,6 +36,8 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ReplyAppTheme {
-        Greeting("Android")
+        Surface {
+            ReplyApp()
+        }
     }
 }

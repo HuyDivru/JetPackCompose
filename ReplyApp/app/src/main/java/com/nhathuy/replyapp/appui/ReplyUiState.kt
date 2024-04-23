@@ -11,7 +11,7 @@ data class ReplyUiState (
     val isShowingHomepage: Boolean =true
         ){
 
-    val currentMailboxEmails: List<Email> by lazy {
+    val currentMailboxEmails:   List<Email> by lazy {
         mailboxes[currentMailbox]!!
     }
 }

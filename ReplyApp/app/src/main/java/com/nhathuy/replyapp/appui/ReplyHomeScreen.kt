@@ -1,16 +1,10 @@
 package com.nhathuy.replyapp.appui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationRail
-import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -86,6 +80,26 @@ fun ReplyAppContent(replyUiState: ReplyUiState,
                     .weight(1f)
                     .padding(horizontal = dimensionResource(id = R.dimen.email_list_only_horizontal_padding))
             )
+            val bottomNavigationContentDescription = stringResource(id = R.string.navigation_bottom)
+            ReplyBottomNavigationBar(
+                currentTab= replyUiState.currentMailbox,
+                onTabPressed = onTabPressed,
+                navigationItemContentList = navigationItemContentList,
+                modifier= Modifier.fillMaxWidth()
+            )
+        }
+    }
+}
+
+@Composable
+fun ReplyBottomNavigationBar(currentTab: MailboxType, onTabPressed: (MailboxType) -> Unit, navigationItemContentList: List<NavigationItemContent>, modifier: Modifier) {
+    NavigationBar(modifier=modifier){
+        for(navItem in navigationItemContentList){
+            NavigationBarItem(selected = currentTab==navItem.mailboxType
+                , onClick = {onTabPressed(navItem.mailboxType) },
+            icon = {
+                Icon(imageVector = navItem.icon, contentDescription = navItem.text)
+            }) 
         }
     }
 }
@@ -109,16 +123,3 @@ data class NavigationItemContent(
     val text:String
 )
 
-
-
-@Preview
-@Composable
-fun HomeScreenPreview(){
-    ReplyAppTheme {
-//        ReplyHomeScreen(
-//            replyUiState = ,
-//            onTabPressed = ,
-//            onEmailCardPressed = ,
-//            onDetailScreenBackPressed = { /*TODO*/ })
-    }
-}
