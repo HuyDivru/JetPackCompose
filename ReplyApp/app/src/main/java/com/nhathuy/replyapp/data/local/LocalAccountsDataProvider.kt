@@ -4,18 +4,23 @@ package com.nhathuy.replyapp.data.local
 import com.nhathuy.replyapp.R
 import com.nhathuy.replyapp.data.Account
 
+/**
+ * An static data store of [Account]s. This includes both [Account]s owned by the current user and
+ * all [Account]s of the current user's contacts.
+ */
 object LocalAccountsDataProvider {
+    val defaultAccount = Account(-1, -1, -1, -1, R.drawable.avatar_1)
 
-    val defaultAccount = Account(-1,-1,-1,-1, R.drawable.avatar_1)
+    val userAccount =
+        Account(
+            id = 1,
+            firstName = R.string.account_1_first_name,
+            lastName = R.string.account_1_last_name,
+            email = R.string.account_1_email,
+            avatar = R.drawable.avatar_10
+        )
 
-    val userAccount = Account(id = 1,
-    firstName = R.string.account_1_first_name,
-    lastName = R.string.account_1_last_name,
-    email = R.string.account_1_email,
-    avatar = R.drawable.avatar_1)
-
-
-   private val listUserContactAccounts = listOf(
+    private val allUserContactAccounts = listOf(
         Account(
             id = 4L,
             firstName = R.string.account_4_first_name,
@@ -42,7 +47,7 @@ object LocalAccountsDataProvider {
             firstName = R.string.account_7_first_name,
             lastName = R.string.account_7_last_name,
             email = R.string.account_7_email,
-            avatar = R.drawable.avatar_10
+            avatar = R.drawable.avatar_0
         ),
         Account(
             id = 8L,
@@ -56,7 +61,7 @@ object LocalAccountsDataProvider {
             firstName = R.string.account_9_first_name,
             lastName = R.string.account_9_last_name,
             email = R.string.account_9_email,
-            avatar = R.drawable.avatar_9
+            avatar = R.drawable.avatar_express
         ),
         Account(
             id = 10L,
@@ -86,13 +91,13 @@ object LocalAccountsDataProvider {
             email = R.string.account_13_email,
             avatar = R.drawable.avatar_4
         )
-
     )
 
-    //get the contact the current user with the given [accountid]
-    fun getContactAccountById(accountId:Long) :Account{
-        return listUserContactAccounts.firstOrNull(){
-            it.id==accountId
-        } ?: listUserContactAccounts.first()
+    /**
+     * Get the contact of the current user with the given [accountId].
+     */
+    fun getContactAccountById(accountId: Long): Account {
+        return allUserContactAccounts.firstOrNull { it.id == accountId }
+            ?: allUserContactAccounts.first()
     }
 }

@@ -1,6 +1,7 @@
 package com.nhathuy.replyapp.appui
 
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.nhathuy.replyapp.R
@@ -22,32 +24,39 @@ import com.nhathuy.replyapp.data.MailboxType
 fun ReplyDetailsScreen(
     replyUiState: ReplyUiState,
     onBackPressed: () -> Unit,
-    modifier: Modifier=Modifier
-){
-    Box(modifier = modifier){
-        LazyColumn(modifier = Modifier
-            .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.inverseOnSurface)
-            .padding(top = dimensionResource(id = R.dimen.detail_card_list_padding_top))){
-            
+    modifier: Modifier = Modifier,
+    isFullScreen: Boolean = false
+) {
+    BackHandler {
+        onBackPressed()
+    }
+    Box(modifier = modifier) {
+        LazyColumn(
+            modifier = Modifier
+                .testTag(stringResource(R.string.details_screen))
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.inverseOnSurface)
+                .padding(top = dimensionResource(R.dimen.detail_card_list_padding_top))
+        ) {
             item {
-              ReplyDetailsScreenTopBar(
-                  onBackPressed,
-                  replyUiState,
-                  Modifier
-                      .fillMaxWidth()
-                      .padding(
-                          bottom = dimensionResource(
-                              id =
-                              R.dimen.detail_topbar_padding_bottom
-                          )
-                      )
-              )  
+                if (isFullScreen) {
+                    ReplyDetailsScreenTopBar(
+                        onBackPressed,
+                        replyUiState,
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = dimensionResource(R.dimen.detail_topbar_padding_bottom))
+                    )
+                }
                 ReplyEmailDetailsCard(
-                    email=replyUiState.currentSelectedEmail,
-                    mailboxType= replyUiState.currentMailbox,
-                    modifier = Modifier.padding(horizontal =  dimensionResource(id =
-                    R.dimen.detail_card_outer_padding_horizontal))
+                    email = replyUiState.currentSelectedEmail,
+                    mailboxType = replyUiState.currentMailbox,
+                    isFullScreen = isFullScreen,
+                    modifier = if (isFullScreen) {
+                        Modifier.padding(horizontal = dimensionResource(R.dimen.detail_card_outer_padding_horizontal))
+                    } else {
+                        Modifier.padding(end = dimensionResource(R.dimen.detail_card_outer_padding_horizontal))
+                    }
                 )
             }
         }
@@ -55,46 +64,101 @@ fun ReplyDetailsScreen(
 }
 
 @Composable
-fun ReplyEmailDetailsCard(email: Email, mailboxType: MailboxType, modifier: Modifier) {
-    val context = LocalContext.current
-    val displayToast = {text:String ->
-        Toast.makeText(context,text, Toast.LENGTH_SHORT).show()
-    }
-
-    Card(modifier = modifier,
-    colors = CardDefaults.cardColors(containerColor =MaterialTheme.colorScheme.surface)) {
-
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(id = R.dimen.detail_card_inner_padding))) {
-            DetailsScreenHeader(email,Modifier.fillMaxWidth())
-
-
-            Text(text = stringResource(id = email.subject),
-            style=MaterialTheme.typography.bodyMedium,
-            color=MaterialTheme.colorScheme.outline,
-            modifier = Modifier.padding(
-                top= dimensionResource(id = R.dimen.detail_content_padding_top),
-                bottom = dimensionResource(id = R.dimen.detail_expanded_subject_body_spacing)
-            ))
-
-            Text(text = stringResource(id = email.body),
-                style=MaterialTheme.typography.bodyLarge,
-                color=MaterialTheme.colorScheme.onSurfaceVariant,
-               )
-            DetailsScreenButtonBar(mailboxType,displayToast)
+private fun ReplyDetailsScreenTopBar(
+    onBackButtonClicked: () -> Unit,
+    replyUiState: ReplyUiState,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        IconButton(
+            onClick = onBackButtonClicked,
+            modifier = Modifier
+                .padding(horizontal = dimensionResource(R.dimen.detail_topbar_back_button_padding_horizontal))
+                .background(MaterialTheme.colorScheme.surface, shape = CircleShape),
+        ) {
+            Icon(
+                imageVector = Icons.Default.ArrowBack,
+                contentDescription = stringResource(id = R.string.navigation_back)
+            )
         }
-
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = dimensionResource(R.dimen.detail_subject_padding_end))
+        ) {
+            Text(
+                text = stringResource(replyUiState.currentSelectedEmail.subject),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
     }
 }
 
 @Composable
-fun DetailsScreenButtonBar(mailboxType: MailboxType, displayToast: (String) -> Unit,modifier: Modifier=Modifier) {
-    Box(modifier = modifier){
-        when(mailboxType){
+private fun ReplyEmailDetailsCard(
+    email: Email,
+    mailboxType: MailboxType,
+    modifier: Modifier = Modifier,
+    isFullScreen: Boolean = false
+) {
+    val context = LocalContext.current
+    val displayToast = { text: String ->
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+    }
+    Card(
+        modifier = modifier,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(R.dimen.detail_card_inner_padding))
+        ) {
+            DetailsScreenHeader(
+                email,
+                Modifier.fillMaxWidth()
+            )
+            if (isFullScreen) {
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.detail_content_padding_top)))
+            } else {
+                Text(
+                    text = stringResource(email.subject),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.outline,
+                    modifier = Modifier.padding(
+                        top = dimensionResource(R.dimen.detail_content_padding_top),
+                        bottom = dimensionResource(R.dimen.detail_expanded_subject_body_spacing)
+                    ),
+                )
+            }
+            Text(
+                text = stringResource(email.body),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            DetailsScreenButtonBar(mailboxType, displayToast)
+        }
+    }
+}
+
+@Composable
+private fun DetailsScreenButtonBar(
+    mailboxType: MailboxType,
+    displayToast: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Box(modifier = modifier) {
+        when (mailboxType) {
             MailboxType.Drafts ->
-                ActionButton(text= stringResource(id = R.string.continue_composing),
-                onButtonClicked= displayToast)
+                ActionButton(
+                    text = stringResource(id = R.string.continue_composing),
+                    onButtonClicked = displayToast
+                )
 
             MailboxType.Spam ->
                 Row(
@@ -119,6 +183,7 @@ fun DetailsScreenButtonBar(mailboxType: MailboxType, displayToast: (String) -> U
                         modifier = Modifier.weight(1f)
                     )
                 }
+
             MailboxType.Sent, MailboxType.Inbox ->
                 Row(
                     modifier = Modifier
@@ -146,35 +211,16 @@ fun DetailsScreenButtonBar(mailboxType: MailboxType, displayToast: (String) -> U
 }
 
 @Composable
-fun ActionButton(text: String, onButtonClicked: (String) -> Unit,modifier: Modifier=Modifier, containIrreversibleAction: Boolean =false) {
-    Box(modifier=modifier){
-        Button(onClick = { onButtonClicked(text) },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = dimensionResource(id = R.dimen.detail_action_button_padding_vertical)),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = if(containIrreversibleAction){
-                MaterialTheme.colorScheme.onErrorContainer
-            }
-        else{
-                MaterialTheme.colorScheme.primaryContainer
-            }
-        )) {
-            
-        }
-    }
-}
-
-@Composable
-fun DetailsScreenHeader(email: Email, modifier: Modifier = Modifier) {
-    Row(modifier=modifier) {
+private fun DetailsScreenHeader(email: Email, modifier: Modifier = Modifier) {
+    Row(modifier = modifier) {
         ReplyProfileImage(
             drawableResource = email.sender.avatar,
             description = stringResource(email.sender.firstName) + " "
                     + stringResource(email.sender.lastName),
             modifier = Modifier.size(
                 dimensionResource(R.dimen.email_header_profile_size)
-            ))
+            )
+        )
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -198,20 +244,35 @@ fun DetailsScreenHeader(email: Email, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ReplyDetailsScreenTopBar(onBackPressed: () -> Unit, replyUiState: ReplyUiState, modifier: Modifier) {
-    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-       IconButton(onClick = onBackPressed,
-       modifier = Modifier
-           .padding(horizontal = dimensionResource(id = R.dimen.detail_topbar_back_button_padding_horizontal))
-           .background(MaterialTheme.colorScheme.surface, shape = CircleShape)) {
-           Icon(imageVector = Icons.Default.ArrowBack, contentDescription = stringResource(id = R.string.navigation_back) )
-       } 
-    }
-    Row(horizontalArrangement = Arrangement.Center,
-    modifier = Modifier
-        .fillMaxWidth()
-        .padding(end = dimensionResource(id = R.dimen.detail_subject_padding_end))) {
-        Text(text = stringResource(id = replyUiState.currentSelectedEmail.subject),
-        style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+private fun ActionButton(
+    text: String,
+    onButtonClicked: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    containIrreversibleAction: Boolean = false,
+) {
+    Box(modifier = modifier) {
+        Button(
+            onClick = { onButtonClicked(text) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = dimensionResource(R.dimen.detail_action_button_padding_vertical)),
+            colors = ButtonDefaults.buttonColors(
+                containerColor =
+                if (containIrreversibleAction) {
+                    MaterialTheme.colorScheme.onErrorContainer
+                } else {
+                    MaterialTheme.colorScheme.primaryContainer
+                }
+            )
+        ) {
+            Text(
+                text = text,
+                color = if (containIrreversibleAction) {
+                    MaterialTheme.colorScheme.onError
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                }
+            )
+        }
     }
 }

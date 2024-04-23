@@ -1,15 +1,40 @@
+/*
+ * Copyright (C) 2023 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.nhathuy.replyapp.data.local
+
 
 import com.nhathuy.replyapp.R
 import com.nhathuy.replyapp.data.Email
 import com.nhathuy.replyapp.data.MailboxType
 
+/**
+ * A static data store of [Email]s.
+ */
 
 object LocalEmailsDataProvider {
+
     val allEmails = listOf(
-        Email(id = 0L, sender = LocalAccountsDataProvider.getContactAccountById(9L),
-        recipients = listOf(LocalAccountsDataProvider.defaultAccount),
-        subject = R.string.email_0_subject, body = R.string.email_0_body, createdAt = R.string.email_0_time),
+        Email(
+            id = 0L,
+            sender = LocalAccountsDataProvider.getContactAccountById(9L),
+            recipients = listOf(LocalAccountsDataProvider.defaultAccount),
+            subject = R.string.email_0_subject,
+            body = R.string.email_0_body,
+            createdAt = R.string.email_0_time,
+        ),
         Email(
             id = 1L,
             sender = LocalAccountsDataProvider.getContactAccountById(6L),
@@ -103,11 +128,11 @@ object LocalEmailsDataProvider {
         )
     )
 
-    //get an email with the give [id]
-    fun get(id:Long) :Email ?{
-        return allEmails.firstOrNull(){
-            it.id==id
-        }
+    /**
+     * Get an [Email] with the given [id].
+     */
+    fun get(id: Long): Email? {
+        return allEmails.firstOrNull { it.id == id }
     }
 
     val defaultEmail = Email(
