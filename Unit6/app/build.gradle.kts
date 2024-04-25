@@ -73,7 +73,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-
+    //navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
     //Room
     val room_version = "2.5.1"
     implementation("androidx.room:room-runtime:$room_version")

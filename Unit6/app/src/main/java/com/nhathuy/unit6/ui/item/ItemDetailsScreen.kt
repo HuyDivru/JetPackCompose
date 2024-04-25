@@ -37,6 +37,7 @@ import com.nhathuy.unit6.R
 import com.nhathuy.unit6.data.Item
 import com.nhathuy.unit6.ui.AppViewModelProvider
 import com.nhathuy.unit6.ui.navigation.NavigationDestination
+import com.nhathuy.unit6.ui.theme.Unit6Theme
 import kotlinx.coroutines.launch
 
 object ItemDetailsDestination: NavigationDestination {
@@ -125,8 +126,25 @@ fun ItemDetailsBody(itemDetailsUiState: ItemDetailsUiState,
   }
 }
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DeleteConfirmationDialog(onDeleteConfirm: () -> Unit, onDeleteCancel: () -> Unit, modifier: Modifier) {
+fun DeleteConfirmationDialog(onDeleteConfirm: () -> Unit, onDeleteCancel: () -> Unit, modifier: Modifier=Modifier) {
+
+    AlertDialog(onDismissRequest = { /* Do nothing */ },
+        title = { Text(stringResource(R.string.attention)) },
+        text = { Text(stringResource(R.string.delete_question)) },
+        modifier = modifier,
+        dismissButton = {
+            TextButton(onClick = onDeleteCancel) {
+                Text(text = stringResource(R.string.no))
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDeleteConfirm) {
+                Text(text = stringResource(R.string.yes))
+            }
+        })
 
 }
 
@@ -147,6 +165,21 @@ fun ItemDetail(item: Item, modifier: Modifier=Modifier) {
                     horizontal = dimensionResource(id = R.dimen.padding_medium)
                 )
             )
+            ItemDetailRow(
+                labelResId=R.string.quantity_in_stock,
+                itemDetail=item.quantity.toString(),
+                modifier=Modifier.padding(
+                    horizontal = dimensionResource(id = R.dimen.padding_medium)
+                )
+            )
+            ItemDetailRow(
+                labelResId=R.string.price,
+                itemDetail=item.formatedPrice(),
+                modifier=Modifier.padding(
+                    horizontal = dimensionResource(id = R.dimen.padding_medium)
+                )
+            )
+
         }
     }
 }
@@ -160,4 +193,14 @@ fun ItemDetailRow(labelResId: Int, itemDetail: String, modifier: Modifier=Modifi
     }
 }
 
+
+@Preview(showBackground = true)
+@Composable
+fun ItemDetailsScreenPreview(){
+    Unit6Theme {
+        ItemDetailsBody(ItemDetailsUiState(
+            outOfStock = true, itemDetails = ItemDetails(1, "Pen", "$100", "10")
+        ), onSellItem = {}, onDelete = {})
+    }
+}
 
