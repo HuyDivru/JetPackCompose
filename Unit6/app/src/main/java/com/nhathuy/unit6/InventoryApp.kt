@@ -8,11 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.nhathuy.unit6.ui.navigation.HomeNavHost
+import com.nhathuy.unit6.ui.navigation.InventoryNavHost
+
 
 @Composable
 fun InventoryApp(navController: NavHostController = rememberNavController()) {
-    HomeNavHost(navController = navController)
+    InventoryNavHost(navController = navController)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

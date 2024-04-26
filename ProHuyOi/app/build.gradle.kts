@@ -1,14 +1,14 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp") version "1.8.21-1.0.11"
 }
+
 android {
-    namespace= "com.nhathuy.unit6"
-    compileSdk= 33
+    namespace= "com.nhathuy.prohuyoi"
+    compileSdk =33
 
     defaultConfig {
-        applicationId= "com.nhathuy.unit6"
+        applicationId= "com.nhathuy.prohuyoi"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -43,7 +43,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
     }
-//    packagingOptions {
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    //    packagingOptions {
 //        resources {
 //            excludes += '/META-INF/{AL2.0,LGPL2.1}'
 //        }
@@ -72,14 +77,4 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
-
-    //navigation
-    implementation("androidx.navigation:navigation-compose:2.5.3")
-    //Room
-    val room_version = "2.5.1"
-    implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")//KTX Extensions/Coroutines for Room
-    ksp("androidx.room:room-compiler:$room_version")
-
 }

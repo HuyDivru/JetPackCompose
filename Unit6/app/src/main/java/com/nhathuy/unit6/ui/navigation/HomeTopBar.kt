@@ -13,44 +13,50 @@ import com.nhathuy.unit6.ui.home.HomeScreen
 import com.nhathuy.unit6.ui.item.*
 
 @Composable
-fun HomeNavHost(
-    navController:  NavHostController,
-    modifier :Modifier = Modifier
-){
-    //composable giúp quản lý chuyển màn hình dễ hơn
-    NavHost(navController = navController, startDestination = HomeDestination.route,modifier=modifier){
-        composable(route=HomeDestination.route){
+fun InventoryNavHost(
+    navController: NavHostController,
+    modifier: Modifier = Modifier,
+) {
+    NavHost(
+        navController = navController,
+        startDestination = HomeDestination.route,
+        modifier = modifier
+    ) {
+        composable(route = HomeDestination.route) {
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(ItemEntryDestination.route) },
-                navigateToItemUpdate = {navController.navigate("${ItemDetailsDestination.route}/${it}")}
+                navigateToItemUpdate = {
+                    navController.navigate("${ItemDetailsDestination.route}/${it}")
+                }
             )
         }
-        composable(route=ItemEntryDestination.route){
+        composable(route = ItemEntryDestination.route) {
             ItemEntryScreen(
-                navigateBack = {navController.popBackStack()},
-                onNavigateUp = {navController.navigateUp()}
+                navigateBack = { navController.popBackStack() },
+                onNavigateUp = { navController.navigateUp() }
             )
         }
         composable(
-            route=ItemDetailsDestination.routeWithArgs,
-            arguments= listOf(navArgument(ItemDetailsDestination.itemIdArg){
-                type=NavType.IntType
+            route = ItemDetailsDestination.routeWithArgs,
+            arguments = listOf(navArgument(ItemDetailsDestination.itemIdArg) {
+                type = NavType.IntType
             })
-        ){
+        ) {
             ItemDetailsScreen(
                 navigateToEditItem = { navController.navigate("${ItemEditDestination.route}/$it") },
-                navigateBack = { navController.navigateUp() })
+                navigateBack = { navController.navigateUp() }
+            )
         }
-
         composable(
-            route=ItemEditDestination.routedWithArgs,
-            arguments = listOf(navArgument(ItemEditDestination.itemArg){
-                type=NavType.IntType
+            route = ItemEditDestination.routedWithArgs,
+            arguments = listOf(navArgument(ItemEditDestination.itemArg) {
+                type = NavType.IntType
             })
-        ){
+        ) {
             ItemEditScreen(
                 navigateBack = { navController.popBackStack() },
-                onNavigateUp = { navController.navigateUp() })
+                onNavigateUp = { navController.navigateUp() }
+            )
         }
     }
 }

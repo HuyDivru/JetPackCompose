@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MarsPhotos</string>
+    <string name="loading">Loading</string>
+    <string name="loading_falied">Loading Failed</string>
+    <string name="loading_failed">Retry</string>
+    <string name="mars_photo">photo mars</string>
+</resources>

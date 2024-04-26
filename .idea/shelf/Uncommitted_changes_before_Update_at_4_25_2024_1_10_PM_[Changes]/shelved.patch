@@ -1,0 +1,391 @@
+Index: MarsPhotos/app/src/main/res/drawable/ic_baseline_error_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/res/drawable/ic_baseline_error_24.xml b/MarsPhotos/app/src/main/res/drawable/ic_baseline_error_24.xml
+new file mode 100644
+--- /dev/null	(date 1713953683251)
++++ b/MarsPhotos/app/src/main/res/drawable/ic_baseline_error_24.xml	(date 1713953683251)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FF0000"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM13,17h-2v-2h2v2zM13,13h-2L11,7h2v6z"/>
++</vector>
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/MarsViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/MarsViewModel.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/MarsViewModel.kt
+new file mode 100644
+--- /dev/null	(date 1713955770426)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/MarsViewModel.kt	(date 1713955770426)
+@@ -0,0 +1,73 @@
++package com.nhathuy.marsphotos.ui
++
++import android.text.Editable.Factory
++import androidx.compose.runtime.getValue
++import androidx.compose.runtime.mutableStateOf
++import androidx.compose.runtime.setValue
++import androidx.lifecycle.ViewModel
++import androidx.lifecycle.ViewModelProvider
++import androidx.lifecycle.viewModelScope
++import androidx.lifecycle.viewmodel.initializer
++import androidx.lifecycle.viewmodel.viewModelFactory
++import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
++import com.nhathuy.marsphotos.MarsPhotosApplication
++import com.nhathuy.marsphotos.data.MarsPhotosRepository
++import com.nhathuy.marsphotos.model.MarsPhoto
++import kotlinx.coroutines.launch
++import retrofit2.HttpException
++import java.io.IOException
++
++//const val APPLICATION_KEY = "android.app.Application"
++//mars ui state
++sealed interface MarsUiState{
++    data class Success(val photos:List<MarsPhoto>) : MarsUiState
++    object Error : MarsUiState
++    object Loading: MarsUiState
++}
++
++class MarsViewModel(private val marsPhotosRepository:MarsPhotosRepository):ViewModel() {
++
++    // declare a variable named marsUistate with marsuistate
++    // use mutablestateof() delegate to manage the state of this variable
++    var marsUiState : MarsUiState by mutableStateOf(MarsUiState.Loading)
++        //specify that the setter for this property is private
++        private set
++
++    /*
++    call getMarsPhotos() on init so we can display status immediately
++     */
++    init {
++        getMarsPhotos()
++    }
++    /*
++    get mars photos information from the mars api retrofit service and update the marsphoto list mutablelist
++     */
++    fun getMarsPhotos() {
++        viewModelScope.launch {
++            marsUiState=MarsUiState.Loading
++            marsUiState=try {
++                MarsUiState.Success(marsPhotosRepository.getMarsPhotos())
++            }
++            catch (e:IOException){
++                MarsUiState.Error
++            }
++            catch (e:HttpException){
++                MarsUiState.Error
++            }
++        }
++    }
++    /*
++    factory for marsviewmodel that takes marsphotosrespository as a dependency
++     */
++    // được sử dụng để tạo ra một đối tượng đặc biệt được gắn liền lớp mà không cần tạo ra một thể hiện của lớp đó
++    companion object {
++        val Factory: ViewModelProvider.Factory = viewModelFactory {
++            initializer {
++                val application = (this[APPLICATION_KEY] as MarsPhotosApplication)
++                val marsPhotosRepository = application.container.marsPhotosRepository
++                MarsViewModel(marsPhotosRepository = marsPhotosRepository)
++            }
++        }
++    }
++
++}
+\ No newline at end of file
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/network/MarsApiService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/network/MarsApiService.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/network/MarsApiService.kt
+new file mode 100644
+--- /dev/null	(date 1713942953319)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/network/MarsApiService.kt	(date 1713942953319)
+@@ -0,0 +1,9 @@
++package com.nhathuy.marsphotos.network
++
++import com.nhathuy.marsphotos.model.MarsPhoto
++import retrofit2.http.GET
++
++interface MarsApiService {
++    @GET("photos")
++    suspend fun getPhotos(): List<MarsPhoto>
++}
+\ No newline at end of file
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/model/MarsPhoto.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/model/MarsPhoto.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/model/MarsPhoto.kt
+new file mode 100644
+--- /dev/null	(date 1713942446030)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/model/MarsPhoto.kt	(date 1713942446030)
+@@ -0,0 +1,10 @@
++package com.nhathuy.marsphotos.model
++
++import androidx.annotation.DrawableRes
++import kotlinx.serialization.SerialName
++
++data class MarsPhoto(
++    val id:String,
++    @SerialName(value = "img_src")
++    val imageMars:String
++)
+\ No newline at end of file
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/AppContainer.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/AppContainer.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/AppContainer.kt
+new file mode 100644
+--- /dev/null	(date 1713955735672)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/AppContainer.kt	(date 1713955735672)
+@@ -0,0 +1,37 @@
++package com.nhathuy.marsphotos.data
++
++import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
++import com.nhathuy.marsphotos.network.MarsApiService
++import kotlinx.serialization.json.Json
++import okhttp3.MediaType.Companion.toMediaType
++import retrofit2.Retrofit
++
++interface AppContainer {
++    val marsPhotosRepository: MarsPhotosRepository
++}
++
++class DefaultAppContainer : AppContainer {
++    private val baseUrl = "https://android-kotlin-fun-mars-server.appspot.com/"
++
++    /**
++     * Use the Retrofit builder to build a retrofit object using a kotlinx.serialization converter
++     */
++    private val retrofit: Retrofit = Retrofit.Builder()
++        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
++        .baseUrl(baseUrl)
++        .build()
++
++    /**
++     * Retrofit service object for creating api calls
++     */
++    private val retrofitService: MarsApiService by lazy {
++        retrofit.create(MarsApiService::class.java)
++    }
++
++    /**
++     * DI implementation for Mars photos repository
++     */
++    override val marsPhotosRepository: MarsPhotosRepository by lazy {
++        NetworkMarsPhotosRepository(retrofitService)
++    }
++}
+\ No newline at end of file
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/HomeScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/HomeScreen.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/HomeScreen.kt
+new file mode 100644
+--- /dev/null	(date 1713954880730)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/HomeScreen.kt	(date 1713954880730)
+@@ -0,0 +1,136 @@
++package com.nhathuy.marsphotos.ui
++
++import androidx.compose.foundation.Image
++import androidx.compose.foundation.layout.*
++import androidx.compose.foundation.lazy.grid.GridCells
++import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
++import androidx.compose.foundation.lazy.grid.items
++import androidx.compose.material3.*
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.input.nestedscroll.nestedScroll
++import androidx.compose.ui.layout.ContentScale
++import androidx.compose.ui.platform.LocalContext
++import androidx.compose.ui.res.painterResource
++import androidx.compose.ui.res.stringResource
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++import androidx.lifecycle.viewmodel.compose.viewModel
++import coil.compose.AsyncImage
++import coil.request.ImageRequest
++import com.nhathuy.marsphotos.R
++import com.nhathuy.marsphotos.model.MarsPhoto
++import com.nhathuy.marsphotos.ui.theme.MarsPhotosTheme
++
++
++@OptIn(ExperimentalMaterial3Api::class)
++@Composable
++fun MarsPhotoApp(){
++    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
++    Scaffold(modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
++    topBar = {MarsTopAppBar(scrollBehavior=scrollBehavior)}) {
++        Surface(modifier = Modifier.fillMaxSize()) {
++            val marsViewModel: MarsViewModel= viewModel(factory = MarsViewModel.Factory)
++            HomeScreen(marsUiState = marsViewModel.marsUiState, retryAction =  marsViewModel::getMarsPhotos,
++            contentPadding = it)
++        }
++    }
++}
++
++@OptIn(ExperimentalMaterial3Api::class)
++@Composable
++fun MarsTopAppBar(scrollBehavior: TopAppBarScrollBehavior,modifier: Modifier=Modifier) {
++    CenterAlignedTopAppBar(scrollBehavior=scrollBehavior, title = {
++        Text(text = stringResource(id = R.string.app_name), style = MaterialTheme.typography.headlineSmall)
++    }, modifier = modifier)
++}
++
++
++@Composable
++fun HomeScreen(
++    marsUiState: MarsUiState,
++    retryAction: () ->Unit,
++    modifier: Modifier = Modifier,
++    contentPadding : PaddingValues = PaddingValues(0.dp)
++){
++    when(marsUiState){
++        is MarsUiState.Loading ->LoadingScreen(modifier=modifier.fillMaxSize())
++        is MarsUiState.Success -> PhotoGridScreen(
++            marsUiState.photos,contentPadding = contentPadding,modifier=modifier.fillMaxWidth()
++        )
++        is MarsUiState.Error -> ErrorScreen(retryAction,modifier=modifier.fillMaxSize())
++    }
++}
++
++@Composable
++fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier=Modifier) {
++    Column(modifier = modifier
++        , verticalArrangement = Arrangement.Center,
++    horizontalAlignment = Alignment.CenterHorizontally) {
++        Image(painter = painterResource(id = R.drawable.ic_baseline_error_24), contentDescription ="")
++        Text(text = stringResource(R.string.loading_falied),modifier=Modifier.padding(16.dp))
++        Button(onClick = retryAction) {
++            Text(text = stringResource(R.string.loading_failed))
++        }
++    }
++}
++
++@Composable
++fun PhotoGridScreen(photos: List<MarsPhoto>, contentPadding: PaddingValues= PaddingValues(0.dp), modifier: Modifier=Modifier) {
++    LazyVerticalGrid(columns = GridCells.Adaptive(150.dp), contentPadding = contentPadding, modifier = modifier.padding(horizontal = 4.dp)){
++        items(items = photos , key = {photo -> photo.id }) {
++            photo ->
++            MarsPhotoCard(photo,modifier= modifier
++                .padding(4.dp)
++                .fillMaxWidth()
++                .aspectRatio(1.5f))
++        }
++    }
++}
++
++@Composable
++fun MarsPhotoCard(photo: MarsPhoto, modifier: Modifier=Modifier) {
++    Card(modifier = modifier
++    , shape = MaterialTheme.shapes.medium,
++    elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)) {
++        AsyncImage(model = ImageRequest.Builder(context = LocalContext.current).data(photo.imageMars).crossfade(true).build(), contentDescription = stringResource(
++                    R.string.mars_photo),
++        error = painterResource(id = R.drawable.ic_broken_image),
++        placeholder = painterResource(id = R.drawable.loading),
++        modifier = Modifier.fillMaxWidth(),
++        contentScale = ContentScale.Crop)
++    }
++}
++
++@Composable
++fun LoadingScreen(modifier: Modifier=Modifier) {
++    Image(painter = painterResource(id = R.drawable.loading)
++        , contentDescription = stringResource(id = R.string.loading)
++    ,modifier=modifier.size(200.dp))
++}
++@Preview(showBackground = true)
++@Composable
++fun LoadingScreenPreview(){
++    MarsPhotosTheme {
++        LoadingScreen()
++    }
++}
++
++@Preview(showBackground = true)
++@Composable
++fun ErrorScreenPreview() {
++    MarsPhotosTheme {
++        ErrorScreen({})
++    }
++}
++
++@Preview(showBackground = true)
++@Composable
++fun PhotoGridScreenPreview(){
++    MarsPhotosTheme {
++        val mockDate = List(10) {
++            MarsPhoto("$it","")}
++            PhotoGridScreen(photos = mockDate)
++        }
++    }
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/MarsPhotosRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/MarsPhotosRepository.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/MarsPhotosRepository.kt
+new file mode 100644
+--- /dev/null	(date 1713955751394)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/MarsPhotosRepository.kt	(date 1713955751394)
+@@ -0,0 +1,19 @@
++package com.nhathuy.marsphotos.data
++
++import com.nhathuy.marsphotos.model.MarsPhoto
++import com.nhathuy.marsphotos.network.MarsApiService
++
++interface MarsPhotosRepository {
++    /** Fetches list of MarsPhoto from marsApi */
++    suspend fun getMarsPhotos(): List<MarsPhoto>
++}
++
++/**
++ * Network Implementation of Repository that fetch mars photos list from marsApi.
++ */
++class NetworkMarsPhotosRepository(
++    private val marsApiService: MarsApiService
++) : MarsPhotosRepository {
++    /** Fetches list of MarsPhoto from marsApi*/
++    override suspend fun getMarsPhotos(): List<MarsPhoto> = marsApiService.getPhotos()
++}
+\ No newline at end of file
+Index: MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/MarsPhotosApplication.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/MarsPhotosApplication.kt b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/MarsPhotosApplication.kt
+new file mode 100644
+--- /dev/null	(date 1713952305500)
++++ b/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/MarsPhotosApplication.kt	(date 1713952305500)
+@@ -0,0 +1,16 @@
++package com.nhathuy.marsphotos
++
++import android.app.Application
++import com.nhathuy.marsphotos.data.AppContainer
++import com.nhathuy.marsphotos.data.DefaultAppContainer
++
++class MarsPhotosApplication: Application() {
++
++    /** Phiên bản AppContainer được các lớp còn lại sử dụng để lấy phần phụ thuộc */
++    /** AppContainer instance used by the rest of classes to obtain dependencies */
++    lateinit var container :AppContainer
++    override fun onCreate() {
++        super.onCreate()
++        container=DefaultAppContainer()
++    }
++}
+\ No newline at end of file

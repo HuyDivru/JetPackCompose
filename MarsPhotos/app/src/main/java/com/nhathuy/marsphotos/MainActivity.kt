@@ -1,4 +1,4 @@
-package com.nhathuy.unit6
+package com.nhathuy.marsphotos
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,34 +10,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.nhathuy.unit6.ui.theme.Unit6Theme
+import com.nhathuy.marsphotos.ui.MarsPhotoApp
+import com.nhathuy.marsphotos.ui.theme.MarsPhotosTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Unit6Theme {
+            MarsPhotosTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    InventoryApp()
+                    MarsPhotoApp()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Unit6Theme {
-        Greeting("Android")
+    MarsPhotosTheme {
+        MarsPhotoApp()
     }
 }

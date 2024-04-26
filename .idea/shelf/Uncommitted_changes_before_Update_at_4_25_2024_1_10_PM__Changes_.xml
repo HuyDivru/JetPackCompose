@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_4_25_2024_1_10_PM_[Changes]" date="1714025404711" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_25_2024_1_10_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4/25/2024 1:10 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="MarsPhotos/app/src/main/res/drawable/ic_broken_image.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_25_2024_1_10_PM_[Changes]/ic_broken_image.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="MarsPhotos/app/src/main/res/drawable/loading.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_25_2024_1_10_PM_[Changes]/loading.png" />
+  </binary>
+</changelist>
