@@ -1,0 +1,2592 @@
+Index: MyApplication/.gitignore
+===================================================================
+diff --git a/MyApplication/.gitignore b/MyApplication/.gitignore
+deleted file mode 100644
+--- a/MyApplication/.gitignore	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,15 +0,0 @@
+-*.iml
+-.gradle
+-/local.properties
+-/.idea/caches
+-/.idea/libraries
+-/.idea/modules.xml
+-/.idea/workspace.xml
+-/.idea/navEditor.xml
+-/.idea/assetWizardSettings.xml
+-.DS_Store
+-/build
+-/captures
+-.externalNativeBuild
+-.cxx
+-local.properties
+Index: MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,5 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+-</adaptive-icon>
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/xml/backup_rules.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/xml/backup_rules.xml b/MyApplication/app/src/main/res/xml/backup_rules.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/xml/backup_rules.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?><!--
+-   Sample backup rules file; uncomment and customize as necessary.
+-   See https://developer.android.com/guide/topics/data/autobackup
+-   for details.
+-   Note: This file is ignored for devices older that API 31
+-   See https://developer.android.com/about/versions/12/backup-restore
+--->
+-<full-backup-content>
+-    <!--
+-   <include domain="sharedpref" path="."/>
+-   <exclude domain="sharedpref" path="device.xml"/>
+--->
+-</full-backup-content>
+\ No newline at end of file
+Index: MyApplication/.idea/vcs.xml
+===================================================================
+diff --git a/MyApplication/.idea/vcs.xml b/MyApplication/.idea/vcs.xml
+deleted file mode 100644
+--- a/MyApplication/.idea/vcs.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: MyApplication/build.gradle
+===================================================================
+diff --git a/MyApplication/build.gradle b/MyApplication/build.gradle
+deleted file mode 100644
+--- a/MyApplication/build.gradle	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,10 +0,0 @@
+-buildscript {
+-    ext {
+-        compose_version = '1.1.1'
+-    }
+-}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+-plugins {
+-    id 'com.android.application' version '7.3.0' apply false
+-    id 'com.android.library' version '7.3.0' apply false
+-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+-}
+\ No newline at end of file
+Index: MyApplication/settings.gradle
+===================================================================
+diff --git a/MyApplication/settings.gradle b/MyApplication/settings.gradle
+deleted file mode 100644
+--- a/MyApplication/settings.gradle	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,16 +0,0 @@
+-pluginManagement {
+-    repositories {
+-        gradlePluginPortal()
+-        google()
+-        mavenCentral()
+-    }
+-}
+-dependencyResolutionManagement {
+-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+-    repositories {
+-        google()
+-        mavenCentral()
+-    }
+-}
+-rootProject.name = "My Application"
+-include ':app'
+Index: MyApplication/app/build.gradle
+===================================================================
+diff --git a/MyApplication/app/build.gradle b/MyApplication/app/build.gradle
+deleted file mode 100644
+--- a/MyApplication/app/build.gradle	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,63 +0,0 @@
+-plugins {
+-    id 'com.android.application'
+-    id 'org.jetbrains.kotlin.android'
+-}
+-
+-android {
+-    namespace 'com.nhathuy.myapplication'
+-    compileSdk 32
+-
+-    defaultConfig {
+-        applicationId "com.nhathuy.myapplication"
+-        minSdk 21
+-        targetSdk 32
+-        versionCode 1
+-        versionName "1.0"
+-
+-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+-        vectorDrawables {
+-            useSupportLibrary true
+-        }
+-    }
+-
+-    buildTypes {
+-        release {
+-            minifyEnabled false
+-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+-        }
+-    }
+-    compileOptions {
+-        sourceCompatibility JavaVersion.VERSION_1_8
+-        targetCompatibility JavaVersion.VERSION_1_8
+-    }
+-    kotlinOptions {
+-        jvmTarget = '1.8'
+-    }
+-    buildFeatures {
+-        compose true
+-    }
+-    composeOptions {
+-        kotlinCompilerExtensionVersion '1.1.1'
+-    }
+-    packagingOptions {
+-        resources {
+-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+-        }
+-    }
+-}
+-
+-dependencies {
+-
+-    implementation 'androidx.core:core-ktx:1.7.0'
+-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+-    implementation 'androidx.activity:activity-compose:1.3.1'
+-    implementation "androidx.compose.ui:ui:$compose_version"
+-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+-    implementation 'androidx.compose.material3:material3:1.0.0-alpha02'
+-    testImplementation 'junit:junit:4.13.2'
+-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+-}
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/values/strings.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/values/strings.xml b/MyApplication/app/src/main/res/values/strings.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/values/strings.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,3 +0,0 @@
+-<resources>
+-    <string name="app_name">My Application</string>
+-</resources>
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/xml/data_extraction_rules.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/xml/data_extraction_rules.xml b/MyApplication/app/src/main/res/xml/data_extraction_rules.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/xml/data_extraction_rules.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,19 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?><!--
+-   Sample data extraction rules file; uncomment and customize as necessary.
+-   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+-   for details.
+--->
+-<data-extraction-rules>
+-    <cloud-backup>
+-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
+-        <include .../>
+-        <exclude .../>
+-        -->
+-    </cloud-backup>
+-    <!--
+-    <device-transfer>
+-        <include .../>
+-        <exclude .../>
+-    </device-transfer>
+-    -->
+-</data-extraction-rules>
+\ No newline at end of file
+Index: MyApplication/.idea/gradle.xml
+===================================================================
+diff --git a/MyApplication/.idea/gradle.xml b/MyApplication/.idea/gradle.xml
+deleted file mode 100644
+--- a/MyApplication/.idea/gradle.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,18 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="GradleSettings">
+-    <option name="linkedExternalProjectsSettings">
+-      <GradleProjectSettings>
+-        <option name="testRunner" value="GRADLE" />
+-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="modules">
+-          <set>
+-            <option value="$PROJECT_DIR$" />
+-            <option value="$PROJECT_DIR$/app" />
+-          </set>
+-        </option>
+-      </GradleProjectSettings>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: MyApplication/app/proguard-rules.pro
+===================================================================
+diff --git a/MyApplication/app/proguard-rules.pro b/MyApplication/app/proguard-rules.pro
+deleted file mode 100644
+--- a/MyApplication/app/proguard-rules.pro	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,21 +0,0 @@
+-# Add project specific ProGuard rules here.
+-# You can control the set of applied configuration files using the
+-# proguardFiles setting in build.gradle.
+-#
+-# For more details, see
+-#   http://developer.android.com/guide/developing/tools/proguard.html
+-
+-# If your project uses WebView with JS, uncomment the following
+-# and specify the fully qualified class name to the JavaScript interface
+-# class:
+-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+-#   public *;
+-#}
+-
+-# Uncomment this to preserve the line number information for
+-# debugging stack traces.
+-#-keepattributes SourceFile,LineNumberTable
+-
+-# If you keep the line number information, uncomment this to
+-# hide the original source file name.
+-#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Type.kt
+===================================================================
+diff --git a/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Type.kt b/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Type.kt
+deleted file mode 100644
+--- a/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Type.kt	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,34 +0,0 @@
+-package com.nhathuy.myapplication.ui.theme
+-
+-import androidx.compose.material3.Typography
+-import androidx.compose.ui.text.TextStyle
+-import androidx.compose.ui.text.font.FontFamily
+-import androidx.compose.ui.text.font.FontWeight
+-import androidx.compose.ui.unit.sp
+-
+-// Set of Material typography styles to start with
+-val Typography = Typography(
+-    bodyLarge = TextStyle(
+-        fontFamily = FontFamily.Default,
+-        fontWeight = FontWeight.Normal,
+-        fontSize = 16.sp,
+-        lineHeight = 24.sp,
+-        letterSpacing = 0.5.sp
+-    )
+-    /* Other default text styles to override
+-    titleLarge = TextStyle(
+-        fontFamily = FontFamily.Default,
+-        fontWeight = FontWeight.Normal,
+-        fontSize = 22.sp,
+-        lineHeight = 28.sp,
+-        letterSpacing = 0.sp
+-    ),
+-    labelSmall = TextStyle(
+-        fontFamily = FontFamily.Default,
+-        fontWeight = FontWeight.Medium,
+-        fontSize = 11.sp,
+-        lineHeight = 16.sp,
+-        letterSpacing = 0.5.sp
+-    )
+-    */
+-)
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/values/themes.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/values/themes.xml b/MyApplication/app/src/main/res/values/themes.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/values/themes.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,5 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-
+-    <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" />
+-</resources>
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml b/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,30 +0,0 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:aapt="http://schemas.android.com/aapt"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+-        <aapt:attr name="android:fillColor">
+-            <gradient
+-                android:endX="85.84757"
+-                android:endY="92.4963"
+-                android:startX="42.9492"
+-                android:startY="49.59793"
+-                android:type="linear">
+-                <item
+-                    android:color="#44000000"
+-                    android:offset="0.0" />
+-                <item
+-                    android:color="#00000000"
+-                    android:offset="1.0" />
+-            </gradient>
+-        </aapt:attr>
+-    </path>
+-    <path
+-        android:fillColor="#FFFFFF"
+-        android:fillType="nonZero"
+-        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+-        android:strokeWidth="1"
+-        android:strokeColor="#00000000" />
+-</vector>
+\ No newline at end of file
+Index: MyApplication/app/src/test/java/com/nhathuy/myapplication/ExampleUnitTest.kt
+===================================================================
+diff --git a/MyApplication/app/src/test/java/com/nhathuy/myapplication/ExampleUnitTest.kt b/MyApplication/app/src/test/java/com/nhathuy/myapplication/ExampleUnitTest.kt
+deleted file mode 100644
+--- a/MyApplication/app/src/test/java/com/nhathuy/myapplication/ExampleUnitTest.kt	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,17 +0,0 @@
+-package com.nhathuy.myapplication
+-
+-import org.junit.Test
+-
+-import org.junit.Assert.*
+-
+-/**
+- * Example local unit test, which will execute on the development machine (host).
+- *
+- * See [testing documentation](http://d.android.com/tools/testing).
+- */
+-class ExampleUnitTest {
+-    @Test
+-    fun addition_isCorrect() {
+-        assertEquals(4, 2 + 2)
+-    }
+-}
+\ No newline at end of file
+Index: MyApplication/.idea/.gitignore
+===================================================================
+diff --git a/MyApplication/.idea/.gitignore b/MyApplication/.idea/.gitignore
+deleted file mode 100644
+--- a/MyApplication/.idea/.gitignore	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: MyApplication/app/src/main/res/drawable/ic_launcher_background.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml b/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,170 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path
+-        android:fillColor="#3DDC84"
+-        android:pathData="M0,0h108v108h-108z" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M9,0L9,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,0L19,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,0L29,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,0L39,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,0L49,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,0L59,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,0L69,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,0L79,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M89,0L89,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M99,0L99,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,9L108,9"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,19L108,19"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,29L108,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,39L108,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,49L108,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,59L108,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,69L108,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,79L108,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,89L108,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,99L108,99"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,29L89,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,39L89,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,49L89,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,59L89,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,69L89,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,79L89,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,19L29,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,19L39,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,19L49,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,19L59,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,19L69,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,19L79,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-</vector>
+Index: MyApplication/gradle/wrapper/gradle-wrapper.properties
+===================================================================
+diff --git a/MyApplication/gradle/wrapper/gradle-wrapper.properties b/MyApplication/gradle/wrapper/gradle-wrapper.properties
+deleted file mode 100644
+--- a/MyApplication/gradle/wrapper/gradle-wrapper.properties	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,6 +0,0 @@
+-#Sat Apr 20 16:37:34 ICT 2024
+-distributionBase=GRADLE_USER_HOME
+-distributionUrl=https\://services.gradle.org/distributions/gradle-7.4-bin.zip
+-distributionPath=wrapper/dists
+-zipStorePath=wrapper/dists
+-zipStoreBase=GRADLE_USER_HOME
+Index: MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Color.kt
+===================================================================
+diff --git a/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Color.kt b/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Color.kt
+deleted file mode 100644
+--- a/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Color.kt	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,11 +0,0 @@
+-package com.nhathuy.myapplication.ui.theme
+-
+-import androidx.compose.ui.graphics.Color
+-
+-val Purple80 = Color(0xFFD0BCFF)
+-val PurpleGrey80 = Color(0xFFCCC2DC)
+-val Pink80 = Color(0xFFEFB8C8)
+-
+-val Purple40 = Color(0xFF6650a4)
+-val PurpleGrey40 = Color(0xFF625b71)
+-val Pink40 = Color(0xFF7D5260)
+\ No newline at end of file
+Index: MyApplication/app/.gitignore
+===================================================================
+diff --git a/MyApplication/app/.gitignore b/MyApplication/app/.gitignore
+deleted file mode 100644
+--- a/MyApplication/app/.gitignore	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,1 +0,0 @@
+-/build
+\ No newline at end of file
+Index: MyApplication/app/src/main/AndroidManifest.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/AndroidManifest.xml b/MyApplication/app/src/main/AndroidManifest.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/AndroidManifest.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,32 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:tools="http://schemas.android.com/tools">
+-
+-    <application
+-        android:allowBackup="true"
+-        android:dataExtractionRules="@xml/data_extraction_rules"
+-        android:fullBackupContent="@xml/backup_rules"
+-        android:icon="@mipmap/ic_launcher"
+-        android:label="@string/app_name"
+-        android:roundIcon="@mipmap/ic_launcher_round"
+-        android:supportsRtl="true"
+-        android:theme="@style/Theme.MyApplication"
+-        tools:targetApi="31">
+-        <activity
+-            android:name=".MainActivity"
+-            android:exported="true"
+-            android:label="@string/app_name"
+-            android:theme="@style/Theme.MyApplication">
+-            <intent-filter>
+-                <action android:name="android.intent.action.MAIN" />
+-
+-                <category android:name="android.intent.category.LAUNCHER" />
+-            </intent-filter>
+-
+-            <meta-data
+-                android:name="android.app.lib_name"
+-                android:value="" />
+-        </activity>
+-    </application>
+-
+-</manifest>
+\ No newline at end of file
+Index: MyApplication/.idea/compiler.xml
+===================================================================
+diff --git a/MyApplication/.idea/compiler.xml b/MyApplication/.idea/compiler.xml
+deleted file mode 100644
+--- a/MyApplication/.idea/compiler.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="11" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: MyApplication/app/src/androidTest/java/com/nhathuy/myapplication/ExampleInstrumentedTest.kt
+===================================================================
+diff --git a/MyApplication/app/src/androidTest/java/com/nhathuy/myapplication/ExampleInstrumentedTest.kt b/MyApplication/app/src/androidTest/java/com/nhathuy/myapplication/ExampleInstrumentedTest.kt
+deleted file mode 100644
+--- a/MyApplication/app/src/androidTest/java/com/nhathuy/myapplication/ExampleInstrumentedTest.kt	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,24 +0,0 @@
+-package com.nhathuy.myapplication
+-
+-import androidx.test.platform.app.InstrumentationRegistry
+-import androidx.test.ext.junit.runners.AndroidJUnit4
+-
+-import org.junit.Test
+-import org.junit.runner.RunWith
+-
+-import org.junit.Assert.*
+-
+-/**
+- * Instrumented test, which will execute on an Android device.
+- *
+- * See [testing documentation](http://d.android.com/tools/testing).
+- */
+-@RunWith(AndroidJUnit4::class)
+-class ExampleInstrumentedTest {
+-    @Test
+-    fun useAppContext() {
+-        // Context of the app under test.
+-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+-        assertEquals("com.nhathuy.myapplication", appContext.packageName)
+-    }
+-}
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/values/colors.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/values/colors.xml b/MyApplication/app/src/main/res/values/colors.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/values/colors.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <color name="purple_200">#FFBB86FC</color>
+-    <color name="purple_500">#FF6200EE</color>
+-    <color name="purple_700">#FF3700B3</color>
+-    <color name="teal_200">#FF03DAC5</color>
+-    <color name="teal_700">#FF018786</color>
+-    <color name="black">#FF000000</color>
+-    <color name="white">#FFFFFFFF</color>
+-</resources>
+\ No newline at end of file
+Index: MyApplication/.idea/misc.xml
+===================================================================
+diff --git a/MyApplication/.idea/misc.xml b/MyApplication/.idea/misc.xml
+deleted file mode 100644
+--- a/MyApplication/.idea/misc.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/build/classes" />
+-  </component>
+-  <component name="ProjectType">
+-    <option name="id" value="Android" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: MyApplication/app/src/main/java/com/nhathuy/myapplication/MainActivity.kt
+===================================================================
+diff --git a/MyApplication/app/src/main/java/com/nhathuy/myapplication/MainActivity.kt b/MyApplication/app/src/main/java/com/nhathuy/myapplication/MainActivity.kt
+deleted file mode 100644
+--- a/MyApplication/app/src/main/java/com/nhathuy/myapplication/MainActivity.kt	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,43 +0,0 @@
+-package com.nhathuy.myapplication
+-
+-import android.os.Bundle
+-import androidx.activity.ComponentActivity
+-import androidx.activity.compose.setContent
+-import androidx.compose.foundation.layout.fillMaxSize
+-import androidx.compose.material3.MaterialTheme
+-import androidx.compose.material3.Surface
+-import androidx.compose.material3.Text
+-import androidx.compose.runtime.Composable
+-import androidx.compose.ui.Modifier
+-import androidx.compose.ui.tooling.preview.Preview
+-import com.nhathuy.myapplication.ui.theme.MyApplicationTheme
+-
+-class MainActivity : ComponentActivity() {
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-        setContent {
+-            MyApplicationTheme {
+-                // A surface container using the 'background' color from the theme
+-                Surface(
+-                    modifier = Modifier.fillMaxSize(),
+-                    color = MaterialTheme.colorScheme.background
+-                ) {
+-                    Greeting("Android")
+-                }
+-            }
+-        }
+-    }
+-}
+-
+-@Composable
+-fun Greeting(name: String) {
+-    Text(text = "Hello $name!")
+-}
+-
+-@Preview(showBackground = true)
+-@Composable
+-fun DefaultPreview() {
+-    MyApplicationTheme {
+-        Greeting("Android")
+-    }
+-}
+\ No newline at end of file
+Index: MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+===================================================================
+diff --git a/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+deleted file mode 100644
+--- a/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,5 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+-</adaptive-icon>
+\ No newline at end of file
+Index: MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Theme.kt
+===================================================================
+diff --git a/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Theme.kt b/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Theme.kt
+deleted file mode 100644
+--- a/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Theme.kt	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,68 +0,0 @@
+-package com.nhathuy.myapplication.ui.theme
+-
+-import android.app.Activity
+-import android.os.Build
+-import androidx.compose.foundation.isSystemInDarkTheme
+-import androidx.compose.material3.MaterialTheme
+-import androidx.compose.material3.darkColorScheme
+-import androidx.compose.material3.dynamicDarkColorScheme
+-import androidx.compose.material3.dynamicLightColorScheme
+-import androidx.compose.material3.lightColorScheme
+-import androidx.compose.runtime.Composable
+-import androidx.compose.runtime.SideEffect
+-import androidx.compose.ui.graphics.toArgb
+-import androidx.compose.ui.platform.LocalContext
+-import androidx.compose.ui.platform.LocalView
+-import androidx.core.view.ViewCompat
+-
+-private val DarkColorScheme = darkColorScheme(
+-    primary = Purple80,
+-    secondary = PurpleGrey80,
+-    tertiary = Pink80
+-)
+-
+-private val LightColorScheme = lightColorScheme(
+-    primary = Purple40,
+-    secondary = PurpleGrey40,
+-    tertiary = Pink40
+-
+-    /* Other default colors to override
+-    background = Color(0xFFFFFBFE),
+-    surface = Color(0xFFFFFBFE),
+-    onPrimary = Color.White,
+-    onSecondary = Color.White,
+-    onTertiary = Color.White,
+-    onBackground = Color(0xFF1C1B1F),
+-    onSurface = Color(0xFF1C1B1F),
+-    */
+-)
+-
+-@Composable
+-fun MyApplicationTheme(
+-    darkTheme: Boolean = isSystemInDarkTheme(),
+-    // Dynamic color is available on Android 12+
+-    dynamicColor: Boolean = true,
+-    content: @Composable () -> Unit
+-) {
+-    val colorScheme = when {
+-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+-            val context = LocalContext.current
+-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+-        }
+-        darkTheme -> DarkColorScheme
+-        else -> LightColorScheme
+-    }
+-    val view = LocalView.current
+-    if (!view.isInEditMode) {
+-        SideEffect {
+-            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
+-            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+-        }
+-    }
+-
+-    MaterialTheme(
+-        colorScheme = colorScheme,
+-        typography = Typography,
+-        content = content
+-    )
+-}
+\ No newline at end of file
+Index: MyApplication/gradle.properties
+===================================================================
+diff --git a/MyApplication/gradle.properties b/MyApplication/gradle.properties
+deleted file mode 100644
+--- a/MyApplication/gradle.properties	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
++++ /dev/null	(revision 75df1b35f5165443e5af834ceaa1f88339d3b47a)
+@@ -1,23 +0,0 @@
+-# Project-wide Gradle settings.
+-# IDE (e.g. Android Studio) users:
+-# Gradle settings configured through the IDE *will override*
+-# any settings specified in this file.
+-# For more details on how to configure your build environment visit
+-# http://www.gradle.org/docs/current/userguide/build_environment.html
+-# Specifies the JVM arguments used for the daemon process.
+-# The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+-# When configured, Gradle will run in incubating parallel mode.
+-# This option should only be used with decoupled projects. More details, visit
+-# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+-# org.gradle.parallel=true
+-# AndroidX package structure to make it clearer which packages are bundled with the
+-# Android operating system, and which are packaged with your app's APK
+-# https://developer.android.com/topic/libraries/support-library/androidx-rn
+-android.useAndroidX=true
+-# Kotlin code style for this project: "official" or "obsolete":
+-kotlin.code.style=official
+-# Enables namespacing of each library's R class so that its R class includes only the
+-# resources declared in the library itself and none from the library's dependencies,
+-# thereby reducing the size of the R class for that library
+-android.nonTransitiveRClass=true
+\ No newline at end of file
+Index: PreferencesLocally/app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/proguard-rules.pro b/PreferencesLocally/app/proguard-rules.pro
+new file mode 100644
+--- /dev/null	(date 1714143389260)
++++ b/PreferencesLocally/app/proguard-rules.pro	(date 1714143389260)
+@@ -0,0 +1,21 @@
++# Add project specific ProGuard rules here.
++# You can control the set of applied configuration files using the
++# proguardFiles setting in build.gradle.kts.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
++
++# Uncomment this to preserve the line number information for
++# debugging stack traces.
++#-keepattributes SourceFile,LineNumberTable
++
++# If you keep the line number information, uncomment this to
++# hide the original source file name.
++#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: PreferencesLocally/app/src/test/java/com/nhathuy/preferenceslocally/ExampleUnitTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/test/java/com/nhathuy/preferenceslocally/ExampleUnitTest.kt b/PreferencesLocally/app/src/test/java/com/nhathuy/preferenceslocally/ExampleUnitTest.kt
+new file mode 100644
+--- /dev/null	(date 1714143278160)
++++ b/PreferencesLocally/app/src/test/java/com/nhathuy/preferenceslocally/ExampleUnitTest.kt	(date 1714143278160)
+@@ -0,0 +1,17 @@
++package com.nhathuy.preferenceslocally
++
++import org.junit.Test
++
++import org.junit.Assert.*
++
++/**
++ * Example local unit test, which will execute on the development machine (host).
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++class ExampleUnitTest {
++    @Test
++    fun addition_isCorrect() {
++        assertEquals(4, 2 + 2)
++    }
++}
+\ No newline at end of file
+Index: SearchApp/app/src/main/java/com/nhathuy/searchapp/DataSource.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SearchApp/app/src/main/java/com/nhathuy/searchapp/DataSource.kt b/SearchApp/app/src/main/java/com/nhathuy/searchapp/DataSource.kt
+new file mode 100644
+--- /dev/null	(date 1714101246485)
++++ b/SearchApp/app/src/main/java/com/nhathuy/searchapp/DataSource.kt	(date 1714101246485)
+@@ -0,0 +1,33 @@
++package com.nhathuy.searchapp
++
++import androidx.annotation.DrawableRes
++import androidx.annotation.StringRes
++
++
++data class DataSource(
++        @DrawableRes val drawable: Int,
++        @StringRes val text: Int
++    )
++public val alignYourBodyData = listOf(
++    R.drawable.ab1_inversions to R.string.ab1_inversions,
++    R.drawable.ab2_quick_yoga to R.string.ab2_quick_yoga,
++    R.drawable.ab3_stretching to R.string.ab3_stretching,
++    R.drawable.ab4_tabata to R.string.ab4_tabata,
++    R.drawable.ab5_hiit to R.string.ab5_hiit,
++    R.drawable.ab6_pre_natal_yoga to R.string.ab6_pre_natal_yoga
++).map {DataSource(it.first, it.second) }
++
++private val favoriteCollectionsData = listOf(
++    R.drawable.fc1_short_mantras to R.string.fc1_short_mantras,
++    R.drawable.fc2_nature_meditations to R.string.fc2_nature_meditations,
++    R.drawable.fc3_stress_and_anxiety to R.string.fc3_stress_and_anxiety,
++    R.drawable.fc4_self_massage to R.string.fc4_self_massage,
++    R.drawable.fc5_overwhelmed to R.string.fc5_overwhelmed,
++    R.drawable.fc6_nightly_wind_down to R.string.fc6_nightly_wind_down
++).map { DataSource(it.first, it.second) }
++
++
++
++
++
++
+Index: PreferencesLocally/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/.idea/.gitignore b/PreferencesLocally/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1714143306549)
++++ b/PreferencesLocally/.idea/.gitignore	(date 1714143306549)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: MigrationApp/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MigrationApp/.idea/workspace.xml b/MigrationApp/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1714143316592)
++++ b/MigrationApp/.idea/workspace.xml	(date 1714143316592)
+@@ -0,0 +1,235 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AndroidLayouts">
++    <shared>
++      <config />
++    </shared>
++  </component>
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="NONE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="355f86aa-35c6-4be2-bc4f-bad391d3d77d" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/.idea/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/.idea/compiler.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/.idea/gradle.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/.idea/misc.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/.idea/vcs.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/build.gradle" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/proguard-rules.pro" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/androidTest/java/com/nhathuy/preferenceslocally/ExampleInstrumentedTest.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/AndroidManifest.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/MainActivity.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Color.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Theme.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Type.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/values/colors.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/values/strings.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/values/themes.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/app/src/test/java/com/nhathuy/preferenceslocally/ExampleUnitTest.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/build.gradle" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/gradle.properties" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/gradlew" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/gradlew.bat" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PreferencesLocally/settings.gradle" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/java/com/nhathuy/searchapp/DataSource.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/ab1_inversions.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/ab2_quick_yoga.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/ab3_stretching.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/ab4_tabata.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/ab5_hiit.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/ab6_pre_natal_yoga.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/fc1_short_mantras.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/fc2_nature_meditations.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/fc3_stress_and_anxiety.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/fc4_self_massage.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/fc5_overwhelmed.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/drawable/fc6_nightly_wind_down.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../SearchApp/app/src/main/res/values/dimens.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.idea/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.idea/.name" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.idea/compiler.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.idea/gradle.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.idea/misc.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/.idea/vcs.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/build.gradle" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/proguard-rules.pro" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/androidTest/java/com/nhathuy/myapplication/ExampleInstrumentedTest.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/AndroidManifest.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/java/com/nhathuy/myapplication/MainActivity.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Color.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Theme.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Type.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/values/colors.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/values/strings.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/values/themes.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/app/src/test/java/com/nhathuy/myapplication/ExampleUnitTest.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/build.gradle" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/gradle.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/gradlew" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/gradlew.bat" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../MyApplication/settings.gradle" beforeDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\777\.android\avd\Pixel_2_API_28.avd]" />
++  <component name="ExternalProjectsData">
++    <projectState path="$PROJECT_DIR$">
++      <ProjectState />
++    </projectState>
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="resourceFile" />
++        <option value="valueResourceFile" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectId" id="2fdm96KLAnqZHUODPZ8jjITnFDQ" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">
++    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
++    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
++    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
++    <property name="cidr.known.project.marker" value="true" />
++  </component>
++  <component name="RunManager">
++    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
++      <module name="MigrationApp.app.main" />
++      <option name="DEPLOY" value="true" />
++      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
++      <option name="DEPLOY_AS_INSTANT" value="false" />
++      <option name="ARTIFACT_NAME" value="" />
++      <option name="PM_INSTALL_OPTIONS" value="" />
++      <option name="ALL_USERS" value="false" />
++      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
++      <option name="CLEAR_APP_STORAGE" value="false" />
++      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
++      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
++      <option name="MODE" value="default_activity" />
++      <option name="CLEAR_LOGCAT" value="false" />
++      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
++      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
++      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
++      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
++      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
++      <option name="DEBUGGER_TYPE" value="Auto" />
++      <Auto>
++        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
++        <option name="SHOW_STATIC_VARS" value="true" />
++        <option name="WORKING_DIR" value="" />
++        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
++        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
++      </Auto>
++      <Hybrid>
++        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
++        <option name="SHOW_STATIC_VARS" value="true" />
++        <option name="WORKING_DIR" value="" />
++        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
++        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
++      </Hybrid>
++      <Java />
++      <Native>
++        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
++        <option name="SHOW_STATIC_VARS" value="true" />
++        <option name="WORKING_DIR" value="" />
++        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
++        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
++      </Native>
++      <Profilers>
++        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
++        <option name="STARTUP_PROFILING_ENABLED" value="false" />
++        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
++        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
++        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
++        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
++        <option name="PROFILING_MODE" value="NOT_SET" />
++      </Profilers>
++      <option name="DEEP_LINK" value="" />
++      <option name="ACTIVITY_CLASS" value="" />
++      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
++      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
++      <method v="2">
++        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
++      </method>
++    </configuration>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="355f86aa-35c6-4be2-bc4f-bad391d3d77d" name="Changes" comment="" />
++      <created>1714139199459</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1714139199459</updated>
++    </task>
++    <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/androidTest/java/com/nhathuy/preferenceslocally/ExampleInstrumentedTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/androidTest/java/com/nhathuy/preferenceslocally/ExampleInstrumentedTest.kt b/PreferencesLocally/app/src/androidTest/java/com/nhathuy/preferenceslocally/ExampleInstrumentedTest.kt
+new file mode 100644
+--- /dev/null	(date 1714143278113)
++++ b/PreferencesLocally/app/src/androidTest/java/com/nhathuy/preferenceslocally/ExampleInstrumentedTest.kt	(date 1714143278113)
+@@ -0,0 +1,24 @@
++package com.nhathuy.preferenceslocally
++
++import androidx.test.platform.app.InstrumentationRegistry
++import androidx.test.ext.junit.runners.AndroidJUnit4
++
++import org.junit.Test
++import org.junit.runner.RunWith
++
++import org.junit.Assert.*
++
++/**
++ * Instrumented test, which will execute on an Android device.
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++@RunWith(AndroidJUnit4::class)
++class ExampleInstrumentedTest {
++    @Test
++    fun useAppContext() {
++        // Context of the app under test.
++        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
++        assertEquals("com.nhathuy.preferenceslocally", appContext.packageName)
++    }
++}
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/drawable/ic_linear_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/drawable/ic_linear_layout.xml b/PreferencesLocally/app/src/main/res/drawable/ic_linear_layout.xml
+new file mode 100644
+--- /dev/null	(date 1714143693350)
++++ b/PreferencesLocally/app/src/main/res/drawable/ic_linear_layout.xml	(date 1714143693350)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="28dp"
++    android:height="28dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M4,14h4v-4L4,10v4zM4,19h4v-4L4,15v4zM4,9h4L8,5L4,5v4zM9,14h12v-4L9,10v4zM9,19h12v-4L9,15v4zM9,5v4h12L21,5L9,5z" />
++</vector>
+\ No newline at end of file
+Index: SearchApp/app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SearchApp/app/src/main/res/values/dimens.xml b/SearchApp/app/src/main/res/values/dimens.xml
+new file mode 100644
+--- /dev/null	(date 1714094955927)
++++ b/SearchApp/app/src/main/res/values/dimens.xml	(date 1714094955927)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <dimen name="padding_small">8dp</dimen>
++    <dimen name="padding_medium">24dp</dimen>
++    <dimen name="image_size">88dp</dimen>
++</resources>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+new file mode 100644
+--- /dev/null	(date 1714143278207)
++++ b/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(date 1714143278207)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/drawable/ic_grid_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/drawable/ic_grid_layout.xml b/PreferencesLocally/app/src/main/res/drawable/ic_grid_layout.xml
+new file mode 100644
+--- /dev/null	(date 1714143671559)
++++ b/PreferencesLocally/app/src/main/res/drawable/ic_grid_layout.xml	(date 1714143671559)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="28dp"
++    android:height="28dp"
++    android:tint="#FFFFFF"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M4,11h5L9,5L4,5v6zM4,18h5v-6L4,12v6zM10,18h5v-6h-5v6zM16,18h5v-6h-5v6zM10,11h5L15,5h-5v6zM16,5v6h5L21,5h-5z"/>
++</vector>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/drawable/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/drawable/ic_launcher_background.xml b/PreferencesLocally/app/src/main/res/drawable/ic_launcher_background.xml
+new file mode 100644
+--- /dev/null	(date 1714143279004)
++++ b/PreferencesLocally/app/src/main/res/drawable/ic_launcher_background.xml	(date 1714143279004)
+@@ -0,0 +1,170 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path
++        android:fillColor="#3DDC84"
++        android:pathData="M0,0h108v108h-108z" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M9,0L9,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,0L19,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,0L29,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,0L39,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,0L49,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,0L59,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,0L69,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,0L79,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M89,0L89,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M99,0L99,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,9L108,9"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,19L108,19"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,29L108,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,39L108,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,49L108,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,59L108,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,69L108,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,79L108,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,89L108,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,99L108,99"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,29L89,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,39L89,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,49L89,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,59L89,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,69L89,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,79L89,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,19L29,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,19L39,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,19L49,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,19L59,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,19L69,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,19L79,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++</vector>
+Index: PreferencesLocally/app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/values/dimens.xml b/PreferencesLocally/app/src/main/res/values/dimens.xml
+new file mode 100644
+--- /dev/null	(date 1714143760143)
++++ b/PreferencesLocally/app/src/main/res/values/dimens.xml	(date 1714143760143)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <dimen name="padding_medium">16dp</dimen>
++    <dimen name="padding_small">8dp</dimen>
++</resources>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/drawable-v24/ic_launcher_foreground.xml b/PreferencesLocally/app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+new file mode 100644
+--- /dev/null	(date 1714143279051)
++++ b/PreferencesLocally/app/src/main/res/drawable-v24/ic_launcher_foreground.xml	(date 1714143279051)
+@@ -0,0 +1,30 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:aapt="http://schemas.android.com/aapt"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
++        <aapt:attr name="android:fillColor">
++            <gradient
++                android:endX="85.84757"
++                android:endY="92.4963"
++                android:startX="42.9492"
++                android:startY="49.59793"
++                android:type="linear">
++                <item
++                    android:color="#44000000"
++                    android:offset="0.0" />
++                <item
++                    android:color="#00000000"
++                    android:offset="1.0" />
++            </gradient>
++        </aapt:attr>
++    </path>
++    <path
++        android:fillColor="#FFFFFF"
++        android:fillType="nonZero"
++        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
++        android:strokeWidth="1"
++        android:strokeColor="#00000000" />
++</vector>
+\ No newline at end of file
+Index: PreferencesLocally/settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/settings.gradle b/PreferencesLocally/settings.gradle
+new file mode 100644
+--- /dev/null	(date 1714143277723)
++++ b/PreferencesLocally/settings.gradle	(date 1714143277723)
+@@ -0,0 +1,16 @@
++pluginManagement {
++    repositories {
++        gradlePluginPortal()
++        google()
++        mavenCentral()
++    }
++}
++dependencyResolutionManagement {
++    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
++    repositories {
++        google()
++        mavenCentral()
++    }
++}
++rootProject.name = "PreferencesLocally"
++include ':app'
+Index: PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/MainActivity.kt b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/MainActivity.kt
+new file mode 100644
+--- /dev/null	(date 1714143280035)
++++ b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/MainActivity.kt	(date 1714143280035)
+@@ -0,0 +1,43 @@
++package com.nhathuy.preferenceslocally
++
++import android.os.Bundle
++import androidx.activity.ComponentActivity
++import androidx.activity.compose.setContent
++import androidx.compose.foundation.layout.fillMaxSize
++import androidx.compose.material3.MaterialTheme
++import androidx.compose.material3.Surface
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.tooling.preview.Preview
++import com.nhathuy.preferenceslocally.ui.theme.PreferencesLocallyTheme
++
++class MainActivity : ComponentActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContent {
++            PreferencesLocallyTheme {
++                // A surface container using the 'background' color from the theme
++                Surface(
++                    modifier = Modifier.fillMaxSize(),
++                    color = MaterialTheme.colorScheme.background
++                ) {
++                    Greeting("Android")
++                }
++            }
++        }
++    }
++}
++
++@Composable
++fun Greeting(name: String) {
++    Text(text = "Hello $name!")
++}
++
++@Preview(showBackground = true)
++@Composable
++fun DefaultPreview() {
++    PreferencesLocallyTheme {
++        Greeting("Android")
++    }
++}
+\ No newline at end of file
+Index: PreferencesLocally/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/.gitignore b/PreferencesLocally/.gitignore
+new file mode 100644
+--- /dev/null	(date 1714143276973)
++++ b/PreferencesLocally/.gitignore	(date 1714143276973)
+@@ -0,0 +1,15 @@
++*.iml
++.gradle
++/local.properties
++/.idea/caches
++/.idea/libraries
++/.idea/modules.xml
++/.idea/workspace.xml
++/.idea/navEditor.xml
++/.idea/assetWizardSettings.xml
++.DS_Store
++/build
++/captures
++.externalNativeBuild
++.cxx
++local.properties
+Index: PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Color.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Color.kt b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Color.kt
+new file mode 100644
+--- /dev/null	(date 1714143279582)
++++ b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Color.kt	(date 1714143279582)
+@@ -0,0 +1,11 @@
++package com.nhathuy.preferenceslocally.ui.theme
++
++import androidx.compose.ui.graphics.Color
++
++val Purple80 = Color(0xFFD0BCFF)
++val PurpleGrey80 = Color(0xFFCCC2DC)
++val Pink80 = Color(0xFFEFB8C8)
++
++val Purple40 = Color(0xFF6650a4)
++val PurpleGrey40 = Color(0xFF625b71)
++val Pink40 = Color(0xFF7D5260)
+\ No newline at end of file
+Index: PreferencesLocally/gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/PreferencesLocally/gradle.properties b/PreferencesLocally/gradle.properties
+new file mode 100644
+--- /dev/null	(date 1714143277254)
++++ b/PreferencesLocally/gradle.properties	(date 1714143277254)
+@@ -0,0 +1,23 @@
++# Project-wide Gradle settings.
++# IDE (e.g. Android Studio) users:
++# Gradle settings configured through the IDE *will override*
++# any settings specified in this file.
++# For more details on how to configure your build environment visit
++# http://www.gradle.org/docs/current/userguide/build_environment.html
++# Specifies the JVM arguments used for the daemon process.
++# The setting is particularly useful for tweaking memory settings.
++org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
++# When configured, Gradle will run in incubating parallel mode.
++# This option should only be used with decoupled projects. More details, visit
++# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
++# org.gradle.parallel=true
++# AndroidX package structure to make it clearer which packages are bundled with the
++# Android operating system, and which are packaged with your app's APK
++# https://developer.android.com/topic/libraries/support-library/androidx-rn
++android.useAndroidX=true
++# Kotlin code style for this project: "official" or "obsolete":
++kotlin.code.style=official
++# Enables namespacing of each library's R class so that its R class includes only the
++# resources declared in the library itself and none from the library's dependencies,
++# thereby reducing the size of the R class for that library
++android.nonTransitiveRClass=true
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Type.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Type.kt b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Type.kt
+new file mode 100644
+--- /dev/null	(date 1714143279597)
++++ b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Type.kt	(date 1714143279597)
+@@ -0,0 +1,34 @@
++package com.nhathuy.preferenceslocally.ui.theme
++
++import androidx.compose.material3.Typography
++import androidx.compose.ui.text.TextStyle
++import androidx.compose.ui.text.font.FontFamily
++import androidx.compose.ui.text.font.FontWeight
++import androidx.compose.ui.unit.sp
++
++// Set of Material typography styles to start with
++val Typography = Typography(
++    bodyLarge = TextStyle(
++        fontFamily = FontFamily.Default,
++        fontWeight = FontWeight.Normal,
++        fontSize = 16.sp,
++        lineHeight = 24.sp,
++        letterSpacing = 0.5.sp
++    )
++    /* Other default text styles to override
++    titleLarge = TextStyle(
++        fontFamily = FontFamily.Default,
++        fontWeight = FontWeight.Normal,
++        fontSize = 22.sp,
++        lineHeight = 28.sp,
++        letterSpacing = 0.sp
++    ),
++    labelSmall = TextStyle(
++        fontFamily = FontFamily.Default,
++        fontWeight = FontWeight.Medium,
++        fontSize = 11.sp,
++        lineHeight = 16.sp,
++        letterSpacing = 0.5.sp
++    )
++    */
++)
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Theme.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Theme.kt b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Theme.kt
+new file mode 100644
+--- /dev/null	(date 1714143280082)
++++ b/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Theme.kt	(date 1714143280082)
+@@ -0,0 +1,68 @@
++package com.nhathuy.preferenceslocally.ui.theme
++
++import android.app.Activity
++import android.os.Build
++import androidx.compose.foundation.isSystemInDarkTheme
++import androidx.compose.material3.MaterialTheme
++import androidx.compose.material3.darkColorScheme
++import androidx.compose.material3.dynamicDarkColorScheme
++import androidx.compose.material3.dynamicLightColorScheme
++import androidx.compose.material3.lightColorScheme
++import androidx.compose.runtime.Composable
++import androidx.compose.runtime.SideEffect
++import androidx.compose.ui.graphics.toArgb
++import androidx.compose.ui.platform.LocalContext
++import androidx.compose.ui.platform.LocalView
++import androidx.core.view.ViewCompat
++
++private val DarkColorScheme = darkColorScheme(
++    primary = Purple80,
++    secondary = PurpleGrey80,
++    tertiary = Pink80
++)
++
++private val LightColorScheme = lightColorScheme(
++    primary = Purple40,
++    secondary = PurpleGrey40,
++    tertiary = Pink40
++
++    /* Other default colors to override
++    background = Color(0xFFFFFBFE),
++    surface = Color(0xFFFFFBFE),
++    onPrimary = Color.White,
++    onSecondary = Color.White,
++    onTertiary = Color.White,
++    onBackground = Color(0xFF1C1B1F),
++    onSurface = Color(0xFF1C1B1F),
++    */
++)
++
++@Composable
++fun PreferencesLocallyTheme(
++    darkTheme: Boolean = isSystemInDarkTheme(),
++    // Dynamic color is available on Android 12+
++    dynamicColor: Boolean = true,
++    content: @Composable () -> Unit
++) {
++    val colorScheme = when {
++        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
++            val context = LocalContext.current
++            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
++        }
++        darkTheme -> DarkColorScheme
++        else -> LightColorScheme
++    }
++    val view = LocalView.current
++    if (!view.isInEditMode) {
++        SideEffect {
++            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
++            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
++        }
++    }
++
++    MaterialTheme(
++        colorScheme = colorScheme,
++        typography = Typography,
++        content = content
++    )
++}
+\ No newline at end of file
+Index: PreferencesLocally/gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/PreferencesLocally/gradle/wrapper/gradle-wrapper.properties b/PreferencesLocally/gradle/wrapper/gradle-wrapper.properties
+new file mode 100644
+--- /dev/null	(date 1714143281535)
++++ b/PreferencesLocally/gradle/wrapper/gradle-wrapper.properties	(date 1714143281535)
+@@ -0,0 +1,6 @@
++#Fri Apr 26 21:54:41 ICT 2024
++distributionBase=GRADLE_USER_HOME
++distributionUrl=https\://services.gradle.org/distributions/gradle-7.4-bin.zip
++distributionPath=wrapper/dists
++zipStorePath=wrapper/dists
++zipStoreBase=GRADLE_USER_HOME
+Index: PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+new file mode 100644
+--- /dev/null	(date 1714143279113)
++++ b/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(date 1714143279113)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/values/colors.xml b/PreferencesLocally/app/src/main/res/values/colors.xml
+new file mode 100644
+--- /dev/null	(date 1714143279176)
++++ b/PreferencesLocally/app/src/main/res/values/colors.xml	(date 1714143279176)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="purple_200">#FFBB86FC</color>
++    <color name="purple_500">#FF6200EE</color>
++    <color name="purple_700">#FF3700B3</color>
++    <color name="teal_200">#FF03DAC5</color>
++    <color name="teal_700">#FF018786</color>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
++</resources>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/values/strings.xml b/PreferencesLocally/app/src/main/res/values/strings.xml
+new file mode 100644
+--- /dev/null	(date 1714143724062)
++++ b/PreferencesLocally/app/src/main/res/values/strings.xml	(date 1714143724062)
+@@ -0,0 +1,6 @@
++<resources>
++    <string name="app_name">Dessert Release</string>
++    <string name="top_bar_name">Android Dessert Release</string>
++    <string name="grid_layout_toggle">Grid layout</string>
++    <string name="linear_layout_toggle">Linear layout</string>
++</resources>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/xml/backup_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/xml/backup_rules.xml b/PreferencesLocally/app/src/main/res/xml/backup_rules.xml
+new file mode 100644
+--- /dev/null	(date 1714143279207)
++++ b/PreferencesLocally/app/src/main/res/xml/backup_rules.xml	(date 1714143279207)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample backup rules file; uncomment and customize as necessary.
++   See https://developer.android.com/guide/topics/data/autobackup
++   for details.
++   Note: This file is ignored for devices older that API 31
++   See https://developer.android.com/about/versions/12/backup-restore
++-->
++<full-backup-content>
++    <!--
++   <include domain="sharedpref" path="."/>
++   <exclude domain="sharedpref" path="device.xml"/>
++-->
++</full-backup-content>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/values/themes.xml b/PreferencesLocally/app/src/main/res/values/themes.xml
+new file mode 100644
+--- /dev/null	(date 1714143279988)
++++ b/PreferencesLocally/app/src/main/res/values/themes.xml	(date 1714143279988)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++
++    <style name="Theme.PreferencesLocally" parent="android:Theme.Material.Light.NoActionBar" />
++</resources>
+\ No newline at end of file
+Index: PreferencesLocally/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/build.gradle.kts b/PreferencesLocally/build.gradle.kts
+new file mode 100644
+--- /dev/null	(date 1714143366571)
++++ b/PreferencesLocally/build.gradle.kts	(date 1714143366571)
+@@ -0,0 +1,11 @@
++buildscript {
++    extra.apply {
++        set("lifecycle_version", "2.6.1")
++    }
++}
++
++plugins {
++    id("com.android.application") version "7.3.0" apply false
++    id("com.android.library") version "7.3.0" apply false
++    id("org.jetbrains.kotlin.android") version "1.8.21" apply false
++}
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/res/xml/data_extraction_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/res/xml/data_extraction_rules.xml b/PreferencesLocally/app/src/main/res/xml/data_extraction_rules.xml
+new file mode 100644
+--- /dev/null	(date 1714143279238)
++++ b/PreferencesLocally/app/src/main/res/xml/data_extraction_rules.xml	(date 1714143279238)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample data extraction rules file; uncomment and customize as necessary.
++   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
++   for details.
++-->
++<data-extraction-rules>
++    <cloud-backup>
++        <!-- TODO: Use <include> and <exclude> to control what is backed up.
++        <include .../>
++        <exclude .../>
++        -->
++    </cloud-backup>
++    <!--
++    <device-transfer>
++        <include .../>
++        <exclude .../>
++    </device-transfer>
++    -->
++</data-extraction-rules>
+\ No newline at end of file
+Index: PreferencesLocally/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/src/main/AndroidManifest.xml b/PreferencesLocally/app/src/main/AndroidManifest.xml
+new file mode 100644
+--- /dev/null	(date 1714143279957)
++++ b/PreferencesLocally/app/src/main/AndroidManifest.xml	(date 1714143279957)
+@@ -0,0 +1,32 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools">
++
++    <application
++        android:allowBackup="true"
++        android:dataExtractionRules="@xml/data_extraction_rules"
++        android:fullBackupContent="@xml/backup_rules"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:roundIcon="@mipmap/ic_launcher_round"
++        android:supportsRtl="true"
++        android:theme="@style/Theme.PreferencesLocally"
++        tools:targetApi="31">
++        <activity
++            android:name=".MainActivity"
++            android:exported="true"
++            android:label="@string/app_name"
++            android:theme="@style/Theme.PreferencesLocally">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++
++            <meta-data
++                android:name="android.app.lib_name"
++                android:value="" />
++        </activity>
++    </application>
++
++</manifest>
+\ No newline at end of file
+Index: PreferencesLocally/app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/build.gradle.kts b/PreferencesLocally/app/build.gradle.kts
+new file mode 100644
+--- /dev/null	(date 1714143578330)
++++ b/PreferencesLocally/app/build.gradle.kts	(date 1714143578330)
+@@ -0,0 +1,76 @@
++plugins {
++    id("com.android.application")
++    id("org.jetbrains.kotlin.android")
++}
++
++android {
++    namespace = "com.nhathuy.preferenceslocally"
++    compileSdk = 33
++
++    defaultConfig {
++        applicationId= "com.nhathuy.preferenceslocally"
++        targetSdk = 33
++        versionCode = 1
++        versionName = "1.0"
++
++        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++        vectorDrawables {
++            useSupportLibrary = true
++        }
++    }
++
++    buildTypes {
++        release {
++            isMinifyEnabled = false
++            proguardFiles(
++                getDefaultProguardFile("proguard-android-optimize.txt"),
++                "proguard-rules.pro"
++            )
++        }
++    }
++    compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_1_8
++        targetCompatibility = JavaVersion.VERSION_1_8
++    }
++    kotlinOptions {
++        jvmTarget = "1.8"
++        allWarningsAsErrors = false
++    }
++    buildFeatures {
++        compose = true
++    }
++    composeOptions {
++        kotlinCompilerExtensionVersion = "1.4.7"
++    }
++//    packagingOptions {
++//        resources {
++//            excludes += '/META-INF/{AL2.0,LGPL2.1}'
++//        }
++//    }
++}
++
++dependencies {
++
++    implementation(platform("androidx.compose:compose-bom:2023.06.00"))
++    implementation("androidx.activity:activity-compose:1.7.2")
++    implementation("androidx.compose.material:material-icons-extended")
++    implementation("androidx.compose.material3:material3")
++    implementation("androidx.compose.material3:material3-window-size-class")
++    implementation("androidx.compose.ui:ui")
++    implementation("androidx.compose.ui:ui-graphics")
++    implementation("androidx.compose.ui:ui-tooling-preview")
++    implementation("androidx.core:core-ktx:1.10.1")
++    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${rootProject.extra["lifecycle_version"]}")
++    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${rootProject.extra["lifecycle_version"]}")
++
++    androidTestImplementation(platform("androidx.compose:compose-bom:2023.06.00"))
++    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
++    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
++    androidTestImplementation("androidx.test.ext:junit:1.1.5")
++    testImplementation("junit:junit:4.13.2")
++
++    debugImplementation("androidx.compose.ui:ui-test-manifest")
++    debugImplementation("androidx.compose.ui:ui-tooling")
++
++    implementation("androidx.datastore:datastore-preferences:1.0.0")
++}
+\ No newline at end of file
+Index: PreferencesLocally/.idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/.idea/compiler.xml b/PreferencesLocally/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1714143306080)
++++ b/PreferencesLocally/.idea/compiler.xml	(date 1714143306080)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="11" />
++  </component>
++</project>
+\ No newline at end of file
+Index: PreferencesLocally/app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/app/.gitignore b/PreferencesLocally/app/.gitignore
+new file mode 100644
+--- /dev/null	(date 1714143277348)
++++ b/PreferencesLocally/app/.gitignore	(date 1714143277348)
+@@ -0,0 +1,1 @@
++/build
+\ No newline at end of file
+Index: PreferencesLocally/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/.idea/misc.xml b/PreferencesLocally/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1714143306064)
++++ b/PreferencesLocally/.idea/misc.xml	(date 1714143306064)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: PreferencesLocally/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/.idea/vcs.xml b/PreferencesLocally/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1714143306158)
++++ b/PreferencesLocally/.idea/vcs.xml	(date 1714143306158)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: PreferencesLocally/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/.idea/gradle.xml b/PreferencesLocally/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1714143306127)
++++ b/PreferencesLocally/.idea/gradle.xml	(date 1714143306127)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="GRADLE" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: PreferencesLocally/gradlew.bat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/gradlew.bat b/PreferencesLocally/gradlew.bat
+new file mode 100644
+--- /dev/null	(date 1714143277098)
++++ b/PreferencesLocally/gradlew.bat	(date 1714143277098)
+@@ -0,0 +1,89 @@
++@rem
++@rem Copyright 2015 the original author or authors.
++@rem
++@rem Licensed under the Apache License, Version 2.0 (the "License");
++@rem you may not use this file except in compliance with the License.
++@rem You may obtain a copy of the License at
++@rem
++@rem      https://www.apache.org/licenses/LICENSE-2.0
++@rem
++@rem Unless required by applicable law or agreed to in writing, software
++@rem distributed under the License is distributed on an "AS IS" BASIS,
++@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++@rem See the License for the specific language governing permissions and
++@rem limitations under the License.
++@rem
++
++@if "%DEBUG%" == "" @echo off
++@rem ##########################################################################
++@rem
++@rem  Gradle startup script for Windows
++@rem
++@rem ##########################################################################
++
++@rem Set local scope for the variables with windows NT shell
++if "%OS%"=="Windows_NT" setlocal
++
++set DIRNAME=%~dp0
++if "%DIRNAME%" == "" set DIRNAME=.
++set APP_BASE_NAME=%~n0
++set APP_HOME=%DIRNAME%
++
++@rem Resolve any "." and ".." in APP_HOME to make it shorter.
++for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
++
++@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
++
++@rem Find java.exe
++if defined JAVA_HOME goto findJavaFromJavaHome
++
++set JAVA_EXE=java.exe
++%JAVA_EXE% -version >NUL 2>&1
++if "%ERRORLEVEL%" == "0" goto execute
++
++echo.
++echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:findJavaFromJavaHome
++set JAVA_HOME=%JAVA_HOME:"=%
++set JAVA_EXE=%JAVA_HOME%/bin/java.exe
++
++if exist "%JAVA_EXE%" goto execute
++
++echo.
++echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:execute
++@rem Setup the command line
++
++set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
++
++
++@rem Execute Gradle
++"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
++
++:end
++@rem End local scope for the variables with windows NT shell
++if "%ERRORLEVEL%"=="0" goto mainEnd
++
++:fail
++rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
++rem the _cmd.exe /c_ return code!
++if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
++exit /b 1
++
++:mainEnd
++if "%OS%"=="Windows_NT" endlocal
++
++:omega
+Index: PreferencesLocally/gradlew
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PreferencesLocally/gradlew b/PreferencesLocally/gradlew
+new file mode 100644
+--- /dev/null	(date 1714143277066)
++++ b/PreferencesLocally/gradlew	(date 1714143277066)
+@@ -0,0 +1,185 @@
++#!/usr/bin/env sh
++
++#
++# Copyright 2015 the original author or authors.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#      https://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++
++##############################################################################
++##
++##  Gradle start up script for UN*X
++##
++##############################################################################
++
++# Attempt to set APP_HOME
++# Resolve links: $0 may be a link
++PRG="$0"
++# Need this for relative symlinks.
++while [ -h "$PRG" ] ; do
++    ls=`ls -ld "$PRG"`
++    link=`expr "$ls" : '.*-> \(.*\)$'`
++    if expr "$link" : '/.*' > /dev/null; then
++        PRG="$link"
++    else
++        PRG=`dirname "$PRG"`"/$link"
++    fi
++done
++SAVED="`pwd`"
++cd "`dirname \"$PRG\"`/" >/dev/null
++APP_HOME="`pwd -P`"
++cd "$SAVED" >/dev/null
++
++APP_NAME="Gradle"
++APP_BASE_NAME=`basename "$0"`
++
++# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
++
++# Use the maximum available, or set MAX_FD != -1 to use that value.
++MAX_FD="maximum"
++
++warn () {
++    echo "$*"
++}
++
++die () {
++    echo
++    echo "$*"
++    echo
++    exit 1
++}
++
++# OS specific support (must be 'true' or 'false').
++cygwin=false
++msys=false
++darwin=false
++nonstop=false
++case "`uname`" in
++  CYGWIN* )
++    cygwin=true
++    ;;
++  Darwin* )
++    darwin=true
++    ;;
++  MINGW* )
++    msys=true
++    ;;
++  NONSTOP* )
++    nonstop=true
++    ;;
++esac
++
++CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
++
++
++# Determine the Java command to use to start the JVM.
++if [ -n "$JAVA_HOME" ] ; then
++    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
++        # IBM's JDK on AIX uses strange locations for the executables
++        JAVACMD="$JAVA_HOME/jre/sh/java"
++    else
++        JAVACMD="$JAVA_HOME/bin/java"
++    fi
++    if [ ! -x "$JAVACMD" ] ; then
++        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++    fi
++else
++    JAVACMD="java"
++    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++fi
++
++# Increase the maximum file descriptors if we can.
++if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
++    MAX_FD_LIMIT=`ulimit -H -n`
++    if [ $? -eq 0 ] ; then
++        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
++            MAX_FD="$MAX_FD_LIMIT"
++        fi
++        ulimit -n $MAX_FD
++        if [ $? -ne 0 ] ; then
++            warn "Could not set maximum file descriptor limit: $MAX_FD"
++        fi
++    else
++        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
++    fi
++fi
++
++# For Darwin, add options to specify how the application appears in the dock
++if $darwin; then
++    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
++fi
++
++# For Cygwin or MSYS, switch paths to Windows format before running java
++if [ "$cygwin" = "true" -o "$msys" = "true" ] ; then
++    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
++    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
++
++    JAVACMD=`cygpath --unix "$JAVACMD"`
++
++    # We build the pattern for arguments to be converted via cygpath
++    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
++    SEP=""
++    for dir in $ROOTDIRSRAW ; do
++        ROOTDIRS="$ROOTDIRS$SEP$dir"
++        SEP="|"
++    done
++    OURCYGPATTERN="(^($ROOTDIRS))"
++    # Add a user-defined pattern to the cygpath arguments
++    if [ "$GRADLE_CYGPATTERN" != "" ] ; then
++        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
++    fi
++    # Now convert the arguments - kludge to limit ourselves to /bin/sh
++    i=0
++    for arg in "$@" ; do
++        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`
++        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option
++
++        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
++            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`
++        else
++            eval `echo args$i`="\"$arg\""
++        fi
++        i=`expr $i + 1`
++    done
++    case $i in
++        0) set -- ;;
++        1) set -- "$args0" ;;
++        2) set -- "$args0" "$args1" ;;
++        3) set -- "$args0" "$args1" "$args2" ;;
++        4) set -- "$args0" "$args1" "$args2" "$args3" ;;
++        5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;
++        6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;
++        7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;
++        8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;
++        9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;
++    esac
++fi
++
++# Escape application args
++save () {
++    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
++    echo " "
++}
++APP_ARGS=`save "$@"`
++
++# Collect all arguments for the java command, following the shell quoting and substitution rules
++eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
++
++exec "$JAVACMD" "$@"

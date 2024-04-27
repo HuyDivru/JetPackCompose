@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.nhathuy.amphibians"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.nhathuy.amphibians"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 

@@ -5,16 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14589a55-777d-4337-a2fe-b86117b2cf6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/MarsPhotosApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/AppContainer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/data/MarsPhotosRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/model/MarsPhoto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/network/MarsApiService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/HomeScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/java/com/nhathuy/marsphotos/ui/MarsViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/res/drawable/ic_baseline_error_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/res/drawable/ic_broken_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarsPhotos/app/src/main/res/drawable/loading.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MigrationApp/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/drawable/ic_grid_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/drawable/ic_linear_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreferencesLocally/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/java/com/nhathuy/searchapp/DataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/ab1_inversions.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/ab2_quick_yoga.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/ab3_stretching.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/ab4_tabata.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/ab5_hiit.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/ab6_pre_natal_yoga.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/fc1_short_mantras.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/fc2_nature_meditations.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/fc3_stress_and_anxiety.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/fc4_self_massage.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/fc5_overwhelmed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/drawable/fc6_nightly_wind_down.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApp/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/androidTest/java/com/nhathuy/myapplication/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/androidTest/java/com/nhathuy/preferenceslocally/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/nhathuy/myapplication/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/java/com/nhathuy/myapplication/ui/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/java/com/nhathuy/preferenceslocally/ui/theme/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/app/src/test/java/com/nhathuy/myapplication/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/app/src/test/java/com/nhathuy/preferenceslocally/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApplication/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/PreferencesLocally/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +90,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Unit6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Amphibians" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

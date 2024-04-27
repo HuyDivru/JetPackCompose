@@ -32,7 +32,7 @@ class AmphibiansViewModel(private val amphibiansRepository: AmphibiansRepository
         getAmphibianPhotos()
     }
 
-    private fun getAmphibianPhotos() {
+    fun getAmphibianPhotos() {
         viewModelScope.launch {
             amphibiansUiState=AmphibianState.Loading
             amphibiansUiState = try {
