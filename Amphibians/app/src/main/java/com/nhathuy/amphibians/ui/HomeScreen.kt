@@ -43,19 +43,20 @@ fun AmphibiansPhoto(photos: List<Amphibians>, contentPadding: PaddingValues= Pad
 @Composable
 fun AmphibiansPhotoCard(photo: Amphibians, modifier: Modifier=Modifier) {
     Card(modifier = modifier, shape = MaterialTheme.shapes.medium, elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)) {
-        Row {
-           Text(text = photo.name, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
-            Text(text = photo.type, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+        Row(modifier=Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
+           Text(text = "${photo.name} (${photo.type})", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
         }
+        Spacer(modifier = Modifier.height(3.dp))
         AsyncImage(
             model = ImageRequest.Builder(context = LocalContext.current).data(photo.imgSrc).crossfade(true).build(),
             contentDescription = stringResource(R.string.photo),
             error = painterResource(id = R.drawable.error),
-            placeholder = painterResource(id = R.drawable.loading),
+            placeholder = painterResource(id = R.drawable.loading_img),
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxWidth()
         )
-        Text(text = photo.description, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Thin)
+        Spacer(modifier = Modifier.height(3.dp))
+        Text(text = photo.description, style = MaterialTheme.typography.titleSmall)
     }
 }
 
@@ -72,5 +73,5 @@ fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier=Modifier) {
 
 @Composable
 fun LoadingScreen(modifier: Modifier=Modifier) {
-    Image(painter = painterResource(id = R.drawable.loading), contentDescription = stringResource(R.string.loading_image),modifier=modifier.size(200.dp))
+    Image(painter = painterResource(id = R.drawable.loading_img), contentDescription = stringResource(R.string.loading_image),modifier=modifier.size(200.dp))
 }
